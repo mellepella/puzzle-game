@@ -5,6 +5,12 @@ const canvasHeight = 500;
 
 let currentScene = 1;
 
+const font = "Arial";
+
+let gameIsRunning = true;
+
+const oneSecond = 1000;
+
 const playerVelocity = 5;
 
 const updateTime = 10;
@@ -14,6 +20,11 @@ const unitSize = 50;
 let startingX = unitSize * 9;
 let startingY = unitSize * 4;
 
+// Time-trackers
+
+let seconds = 0;
+let minutes = 0;
+
 // Cubes
 
 const playerCube = new PlayerCube(startingX, startingY);
@@ -22,6 +33,17 @@ class Game {
 	static clearCanvas() {
 		ctx.fillStyle = "#f0f0f0";
 		ctx.fillRect(0, 0, window.innerWidth, window.innerHeight)
+	}
+	static count() {
+		seconds += 1;
+		if(seconds === 60) {
+			seconds = 0;
+			minutes += 1;
+			if(minutes === 60) {
+				minutes = 0;
+				hours += 1;
+			}
+		}
 	}
 	static detectKeyPress(event) {
 		if(event.charCode == 119) {
@@ -37,12 +59,17 @@ class Game {
 			playerCube.goRight();
 		}
 	}
+	static displayText(x, y,textSize, text) {
+		ctx.fillStyle = 'black';
+		ctx.font = textSize + " " + font;
+		ctx.fillText(text, x, y);
+	}
 	static restart() {
 		playerCube.stop(startingX, startingY);
 		playerCube.isColliding = false;
 	}
 
-	// Our scene-system
+	// Scene-system
 
 	static sceneOne() {
 		this.clearCanvas();
@@ -67,6 +94,13 @@ class Game {
 		else if(currentScene === 2) {
 			this.sceneTwo();
 		}	
+		else {
+			this.clearCanvas();
+
+			gameIsRunning = false;
+			this.displayText(unitSize * 2, unitSize * 4, "40px",  "You finished in " + seconds + " second(s) and " + minutes + " minute(s)");
+			this.displayText(unitSize * 7, unitSize * 5, "30px", "(Press f5 to restart)");		
+		}
 	}
 }
 
@@ -75,3 +109,9 @@ class Game {
 setInterval(function() {
 	Game.update();
 }, updateTime);
+
+setInterval(function() {
+	if(gameIsRunning) {
+		Game.count();
+	}
+}, oneSecond);
