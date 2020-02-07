@@ -59,11 +59,6 @@ class Game {
 			playerCube.goRight();
 		}
 	}
-	static displayText(x, y,textSize, text) {
-		ctx.fillStyle = 'black';
-		ctx.font = textSize + " " + font;
-		ctx.fillText(text, x, y);
-	}
 	static restart() {
 		playerCube.stop(startingX, startingY);
 		playerCube.isColliding = false;
@@ -98,8 +93,8 @@ class Game {
 			this.clearCanvas();
 
 			gameIsRunning = false;
-			this.displayText(unitSize * 2, unitSize * 4, "40px",  "You finished in " + seconds + " second(s) and " + minutes + " minute(s)");
-			this.displayText(unitSize * 7, unitSize * 5, "30px", "(Press f5 to restart)");		
+			UserInterface.displayText(unitSize * 2, unitSize * 4, "40px",  "You finished in " + seconds + " second(s) and " + minutes + " minute(s)");
+			UserInterface.displayText(unitSize * 7, unitSize * 5, "30px", "(Press f5 to restart)");		
 		}
 	}
 }
