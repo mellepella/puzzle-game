@@ -1,3 +1,8 @@
+// Time-trackers
+
+let seconds = 0;
+let minutes = 0;
+
 // Variables used all around
 
 const canvasWidth = 1000;
@@ -20,10 +25,7 @@ const unitSize = 50;
 let startingX = unitSize * 9;
 let startingY = unitSize * 4;
 
-// Time-trackers
-
-let seconds = 0;
-let minutes = 0;
+let winningMessage = `You finished in ${seconds} seconds and ${minutes} minutes`;
 
 // Cubes
 
@@ -90,10 +92,12 @@ class Game {
 			this.sceneTwo();
 		}	
 		else {
+			winningMessage = `You finished in ${seconds} seconds and ${minutes} minutes`;
+
 			this.clearCanvas();
 
 			gameIsRunning = false;
-			UserInterface.displayText(unitSize * 2, unitSize * 4, "40px",  "You finished in " + seconds + " second(s) and " + minutes + " minute(s)");
+			UserInterface.displayText(unitSize * 2, unitSize * 4, "40px",  winningMessage);
 			UserInterface.displayText(unitSize * 7, unitSize * 5, "30px", "(Press f5 to restart)");		
 		}
 	}
