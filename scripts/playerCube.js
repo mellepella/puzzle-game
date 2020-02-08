@@ -1,6 +1,6 @@
 
 class PlayerCube {
-	constructor(startX, startY) {
+	constructor(startX, startY, startingTime) {
 		this.color = 'orange';
 
 		this.startX = startX;
@@ -49,7 +49,7 @@ class PlayerCube {
 		this.isMoving = false;
 	}	
 	goUp() {
-		if(this.isMoving == true) {
+		if(this.isMoving) {
 			return;
 		}
 		else {
@@ -59,7 +59,7 @@ class PlayerCube {
 		}
 	}
 	goDown() {
-		if(this.isMoving == true) {
+		if(this.isMoving) {
 			return;
 		}
 		else {
@@ -69,7 +69,7 @@ class PlayerCube {
 		}
 	}
 	goLeft() {
-		if(this.isMoving == true) {
+		if(this.isMoving) {
 			return;
 		}
 		else {
@@ -80,7 +80,7 @@ class PlayerCube {
 		
 	}
 	goRight() {
-		if(this.isMoving == true) {
+		if(this.isMoving) {
 			return;
 		}
 		else {

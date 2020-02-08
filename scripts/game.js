@@ -25,8 +25,6 @@ const unitSize = 50;
 let startingX = unitSize * 9;
 let startingY = unitSize * 4;
 
-let winningMessage = `You finished in ${seconds} seconds and ${minutes} minutes`;
-
 // Cubes
 
 const playerCube = new PlayerCube(startingX, startingY);
@@ -92,7 +90,7 @@ class Game {
 			this.sceneTwo();
 		}	
 		else {
-			winningMessage = `You finished in ${seconds} seconds and ${minutes} minutes`;
+			const winningMessage = `You finished in ${minutes} minutes and ${seconds} seconds`;
 
 			this.clearCanvas();
 
