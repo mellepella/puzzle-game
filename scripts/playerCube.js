@@ -1,6 +1,6 @@
 
 class PlayerCube {
-	constructor(startX, startY, startingTime) {
+	constructor(startX, startY) {
 		this.color = 'orange';
 
 		this.startX = startX;
