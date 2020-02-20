@@ -1,5 +1,7 @@
 // Time-trackers
 
+const startTime = new Date();
+
 let seconds = 0;
 let minutes = 0;
 
@@ -90,13 +92,22 @@ class Game {
 			this.sceneTwo();
 		}	
 		else {
-			const winningMessage = `You finished in ${minutes} minutes and ${seconds} seconds`;
+			if(gameIsRunning) {
+				const endTime = new Date();
 
-			this.clearCanvas();
+				const elapsedSeconds = endTime.getSeconds() - startTime.getSeconds();
 
-			gameIsRunning = false;
-			UserInterface.displayText(unitSize * 2, unitSize * 4, "40px",  winningMessage);
-			UserInterface.displayText(unitSize * 7, unitSize * 5, "30px", "(Press f5 to restart)");		
+				const elapsedMinutes = endTime.getMinutes() - startTime.getMinutes(); 
+	
+				const winningMessage = `You finished in ${elapsedSeconds} seconds and ${elapsedMinutes} minutes.`;
+
+				this.clearCanvas();
+
+				UserInterface.displayText(unitSize * 2, unitSize * 4, "40px",  winningMessage);
+				UserInterface.displayText(unitSize * 7, unitSize * 5, "30px", "(Press f5 to restart)");	
+				
+				gameIsRunning = false;
+			}
 		}
 	}
 }
@@ -106,9 +117,3 @@ class Game {
 setInterval(function() {
 	Game.update();
 }, updateTime);
-
-setInterval(function() {
-	if(gameIsRunning) {
-		Game.count();
-	}
-}, oneSecond);
