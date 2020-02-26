@@ -13,6 +13,14 @@ const font = "Arial";
 
 let gameIsRunning = true;
 
+const keyCodes = {
+	'w': 119,
+	'a': 97,
+	's': 115,
+	'd': 100,
+	'r': 114
+}
+
 const playerVelocity = 5;
 
 const updateTime = 10;
@@ -43,17 +51,20 @@ class Game {
 		}
 	}
 	static detectKeyPress(event) {
-		if(event.charCode == 119) {
+		if(event.charCode === keyCodes.w) {
 			playerCube.goUp();
 		}
-		else if(event.charCode == 115) {
+		else if(event.charCode === keyCodes.s) {
 			playerCube.goDown();
 		}
-		else if(event.charCode == 97) {
+		else if(event.charCode === keyCodes.a) {
 			playerCube.goLeft();
 		}
-		else if(event.charCode == 100) {
+		else if(event.charCode === keyCodes.d) {
 			playerCube.goRight();
+		}
+		else if(event.charCode === keyCodes.r) {
+			Game.restart();
 		}
 	}
 	static restart() {
