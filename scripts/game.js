@@ -2,9 +2,6 @@
 
 const startTime = new Date();
 
-let seconds = 0;
-let minutes = 0;
-
 // Variables used all around
 
 const canvasWidth = 1000;
@@ -15,8 +12,6 @@ let currentScene = 1;
 const font = "Arial";
 
 let gameIsRunning = true;
-
-const oneSecond = 1000;
 
 const playerVelocity = 5;
 
