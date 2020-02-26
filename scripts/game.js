@@ -85,32 +85,33 @@ class Game {
 		CubeCreator.createObstacle(unitSize * 13, unitSize * 4).update();
 	}
 	static update() {
-		if(currentScene === 1) {
-			this.sceneOne();
-		}
-		else if(currentScene === 2) {
-			this.sceneTwo();
-		}	
-		else {
-			if(gameIsRunning) {
-				const endTime = new Date();
+		scenes[currentScene - 1]();
+	}
+	static winningScene() {
+		if(gameIsRunning) {
+			const endTime = new Date();
 
-				const elapsedSeconds = endTime.getSeconds() - startTime.getSeconds();
+			const elapsedSeconds = endTime.getSeconds() - startTime.getSeconds();
 
-				const elapsedMinutes = endTime.getMinutes() - startTime.getMinutes(); 
-	
-				const winningMessage = `You finished in ${elapsedSeconds} seconds and ${elapsedMinutes} minutes.`;
+			const elapsedMinutes = endTime.getMinutes() - startTime.getMinutes(); 
 
-				this.clearCanvas();
+			const winningMessage = `You finished in ${elapsedSeconds} seconds and ${elapsedMinutes} minutes.`;
 
-				UserInterface.displayText(unitSize * 2, unitSize * 4, "40px",  winningMessage);
-				UserInterface.displayText(unitSize * 7, unitSize * 5, "30px", "(Press f5 to restart)");	
-				
-				gameIsRunning = false;
-			}
+			this.clearCanvas();
+
+			UserInterface.displayText(unitSize * 2, unitSize * 4, "40px",  winningMessage);
+			UserInterface.displayText(unitSize * 7, unitSize * 5, "30px", "(Press f5 to restart)");	
+			
+			gameIsRunning = false;
 		}
 	}
 }
+
+const scenes = [
+	function() { Game.sceneOne() },
+	function() { Game.sceneTwo() },
+	function() { Game.winningScene() }
+]
 
 // Animate
 
