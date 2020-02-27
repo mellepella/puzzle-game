@@ -2,6 +2,8 @@
 
 const startTime = new Date();
 
+const oneSecond = 1000;
+
 // Variables used all around
 
 const canvasWidth = 1000;
@@ -12,6 +14,14 @@ let currentScene = 1;
 const font = "Arial";
 
 let gameIsRunning = true;
+
+const keyCodes = {
+	'w': 119,
+	'a': 97,
+	's': 115,
+	'd': 100,
+	'r': 114
+}
 
 const playerVelocity = 5;
 
@@ -31,29 +41,21 @@ class Game {
 		ctx.fillStyle = "#f0f0f0";
 		ctx.fillRect(0, 0, window.innerWidth, window.innerHeight)
 	}
-	static count() {
-		seconds += 1;
-		if(seconds === 60) {
-			seconds = 0;
-			minutes += 1;
-			if(minutes === 60) {
-				minutes = 0;
-				hours += 1;
-			}
-		}
-	}
 	static detectKeyPress(event) {
-		if(event.charCode == 119) {
+		if (event.charCode === keyCodes.w) {
 			playerCube.goUp();
 		}
-		else if(event.charCode == 115) {
+		else if (event.charCode === keyCodes.s) {
 			playerCube.goDown();
 		}
-		else if(event.charCode == 97) {
+		else if (event.charCode === keyCodes.a) {
 			playerCube.goLeft();
 		}
-		else if(event.charCode == 100) {
+		else if (event.charCode === keyCodes.d) {
 			playerCube.goRight();
+		}
+		else if(event.charCode === keyCodes.r) {
+			Game.restart();
 		}
 	}
 	static restart() {
@@ -83,12 +85,16 @@ class Game {
 		scenes[currentScene - 1]();
 	}
 	static winningScene() {
-		if(gameIsRunning) {
+		if (gameIsRunning) {
 			const endTime = new Date();
 
-			const elapsedSeconds = endTime.getSeconds() - startTime.getSeconds();
+			const elapsedMilliseconds = endTime.getTime() - startTime.getTime();
 
-			const elapsedMinutes = endTime.getMinutes() - startTime.getMinutes(); 
+			let elapsedSeconds = Math.round(elapsedMilliseconds/oneSecond);
+
+			const elapsedMinutes = Math.floor(elapsedSeconds/60);
+
+			elapsedSeconds = elapsedSeconds - elapsedMinutes * 60;
 
 			const winningMessage = `You finished in ${elapsedSeconds} seconds and ${elapsedMinutes} minutes.`;
 
