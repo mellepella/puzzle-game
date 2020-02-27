@@ -42,16 +42,16 @@ class Game {
 		ctx.fillRect(0, 0, window.innerWidth, window.innerHeight)
 	}
 	static detectKeyPress(event) {
-		if (event.charCode === keyCodes.w) {
+		if(event.charCode === keyCodes.w) {
 			playerCube.goUp();
 		}
-		else if (event.charCode === keyCodes.s) {
+		else if(event.charCode === keyCodes.s) {
 			playerCube.goDown();
 		}
-		else if (event.charCode === keyCodes.a) {
+		else if(event.charCode === keyCodes.a) {
 			playerCube.goLeft();
 		}
-		else if (event.charCode === keyCodes.d) {
+		else if(event.charCode === keyCodes.d) {
 			playerCube.goRight();
 		}
 		else if(event.charCode === keyCodes.r) {
