@@ -1,7 +1,8 @@
 // Time-trackers
 
-let seconds = 0;
-let minutes = 0;
+const startTime = new Date();
+
+const oneSecond = 1000;
 
 // Variables used all around
 
@@ -22,8 +23,6 @@ const keyCodes = {
 	'r': 114
 }
 
-const oneSecond = 1000;
-
 const playerVelocity = 5;
 
 const updateTime = 10;
@@ -38,20 +37,24 @@ let startingY = unitSize * 4;
 const playerCube = new PlayerCube(startingX, startingY);
 
 class Game {
+	static calculateTime() {
+		const endTime = new Date();
+
+		const elapsedMilliseconds = endTime.getTime() - startTime.getTime();
+
+		let elapsedSeconds = Math.round(elapsedMilliseconds/oneSecond);
+
+		const elapsedMinutes = Math.floor(elapsedSeconds/60);
+
+		elapsedSeconds = elapsedSeconds - elapsedMinutes * 60;
+
+		const winningMessage = `You finished in ${elapsedSeconds} seconds and ${elapsedMinutes} minutes.`;
+
+		return winningMessage;
+	}
 	static clearCanvas() {
 		ctx.fillStyle = "#f0f0f0";
 		ctx.fillRect(0, 0, window.innerWidth, window.innerHeight)
-	}
-	static count() {
-		seconds += 1;
-		if(seconds === 60) {
-			seconds = 0;
-			minutes += 1;
-			if(minutes === 60) {
-				minutes = 0;
-				hours += 1;
-			}
-		}
 	}
 	static detectKeyPress(event) {
 		if(event.charCode === keyCodes.w) {
@@ -94,32 +97,28 @@ class Game {
 		CubeCreator.createObstacle(unitSize * 13, unitSize * 4).update();
 	}
 	static update() {
-		if(currentScene === 1) {
-			this.sceneOne();
-		}
-		else if(currentScene === 2) {
-			this.sceneTwo();
-		}	
-		else {
-			const winningMessage = `You finished in ${minutes} minutes and ${seconds} seconds`;
-
+		scenes[currentScene - 1]();
+	}
+	static winningScene() {
+		if (gameIsRunning) {
 			this.clearCanvas();
 
+			UserInterface.displayText(unitSize * 2, unitSize * 4, "40px",  this.calculateTime());
+			UserInterface.displayText(unitSize * 7, unitSize * 5, "30px", "(Press f5 to restart)");	
+			
 			gameIsRunning = false;
-			UserInterface.displayText(unitSize * 2, unitSize * 4, "40px",  winningMessage);
-			UserInterface.displayText(unitSize * 7, unitSize * 5, "30px", "(Press f5 to restart)");		
 		}
 	}
 }
+
+const scenes = [
+	function() { Game.sceneOne() },
+	function() { Game.sceneTwo() },
+	function() { Game.winningScene() }
+]
 
 // Animate
 
 setInterval(function() {
 	Game.update();
 }, updateTime);
-
-setInterval(function() {
-	if(gameIsRunning) {
-		Game.count();
-	}
-}, oneSecond);
