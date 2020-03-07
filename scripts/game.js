@@ -77,27 +77,64 @@ class Game {
 		playerCube.stop(startingX, startingY);
 		playerCube.isColliding = false;
 	}
+	static update() {
+		scenes[currentScene - 1]();
+	}
 
 	// Scene-system
 
-	static sceneOne() {
+	static one() {
 		this.clearCanvas();
 		playerCube.update();
 		CubeCreator.createWinningCube(unitSize * 6, unitSize * 4).update();
 	}
-	static sceneTwo() {
-
+	static two() {
 		this.clearCanvas();
 		playerCube.update();
 		CubeCreator.createWinningCube(unitSize * 4, unitSize * 3).update();
 
-		CubeCreator.createObstacle(unitSize * 12, unitSize * 7).update();
-		CubeCreator.createObstacle(unitSize * 6, unitSize * 6).update();
-		CubeCreator.createObstacle(unitSize * 7, unitSize * 2).update();
+		CubeCreator.createObstacle(unitSize * 7, unitSize * 2).update(); 
 		CubeCreator.createObstacle(unitSize * 13, unitSize * 4).update();
+		CubeCreator.createObstacle(unitSize * 6, unitSize * 6).update();
+		CubeCreator.createObstacle(unitSize * 12, unitSize * 7).update();
 	}
-	static update() {
-		scenes[currentScene - 1]();
+	static three() {
+		this.clearCanvas();
+		playerCube.update();
+		CubeCreator.createWinningCube(unitSize * 12, unitSize * 7).update();
+
+		CubeCreator.createObstacle(unitSize * 9, unitSize * 2).update();
+
+		CubeCreator.createObstacle(unitSize * 6, unitSize * 4).update();
+		CubeCreator.createObstacle(unitSize * 12, unitSize * 4).update();
+
+		CubeCreator.createObstacle(unitSize * 13, unitSize * 5).update();
+
+		CubeCreator.createObstacle(unitSize * 5, unitSize * 6).update();
+
+		CubeCreator.createObstacle(unitSize * 11, unitSize * 7).update();
+
+	}
+	static four() {
+		this.clearCanvas();
+		playerCube.update();
+		CubeCreator.createWinningCube(unitSize * 6, unitSize * 2).update();
+
+		CubeCreator.createObstacle(unitSize * 13, unitSize * 1).update();
+
+		CubeCreator.createObstacle(unitSize * 9, unitSize * 2).update();
+
+		CubeCreator.createObstacle(unitSize * 12, unitSize * 4).update();
+		CubeCreator.createObstacle(unitSize * 8, unitSize * 4).update();
+
+		CubeCreator.createObstacle(unitSize * 14, unitSize * 5).update();
+
+		CubeCreator.createObstacle(unitSize * 7, unitSize * 6).update();
+
+		CubeCreator.createObstacle(unitSize * 11, unitSize * 7).update();
+		CubeCreator.createObstacle(unitSize * 5, unitSize * 7).update();
+
+		CubeCreator.createObstacle(unitSize * 10, unitSize * 8).update();
 	}
 	static winningScene() {
 		if (gameIsRunning) {
@@ -112,8 +149,10 @@ class Game {
 }
 
 const scenes = [
-	function() { Game.sceneOne() },
-	function() { Game.sceneTwo() },
+	function() { Game.one() },
+	function() { Game.two() },
+	function() { Game.three() },
+	function() { Game.four() },
 	function() { Game.winningScene() }
 ]
 
