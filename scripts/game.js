@@ -37,6 +37,21 @@ let startingY = unitSize * 4;
 const playerCube = new PlayerCube(startingX, startingY);
 
 class Game {
+	static calculateTime() {
+		const endTime = new Date();
+
+		const elapsedMilliseconds = endTime.getTime() - startTime.getTime();
+
+		let elapsedSeconds = Math.round(elapsedMilliseconds/oneSecond);
+
+		const elapsedMinutes = Math.floor(elapsedSeconds/60);
+
+		elapsedSeconds = elapsedSeconds - elapsedMinutes * 60;
+
+		const winningMessage = `You finished in ${elapsedSeconds} seconds and ${elapsedMinutes} minutes.`;
+
+		return winningMessage;
+	}
 	static clearCanvas() {
 		ctx.fillStyle = "#f0f0f0";
 		ctx.fillRect(0, 0, window.innerWidth, window.innerHeight)
@@ -86,21 +101,9 @@ class Game {
 	}
 	static winningScene() {
 		if (gameIsRunning) {
-			const endTime = new Date();
-
-			const elapsedMilliseconds = endTime.getTime() - startTime.getTime();
-
-			let elapsedSeconds = Math.round(elapsedMilliseconds/oneSecond);
-
-			const elapsedMinutes = Math.floor(elapsedSeconds/60);
-
-			elapsedSeconds = elapsedSeconds - elapsedMinutes * 60;
-
-			const winningMessage = `You finished in ${elapsedSeconds} seconds and ${elapsedMinutes} minutes.`;
-
 			this.clearCanvas();
 
-			UserInterface.displayText(unitSize * 2, unitSize * 4, "40px",  winningMessage);
+			UserInterface.displayText(unitSize * 2, unitSize * 4, "40px",  this.calculateTime());
 			UserInterface.displayText(unitSize * 7, unitSize * 5, "30px", "(Press f5 to restart)");	
 			
 			gameIsRunning = false;
