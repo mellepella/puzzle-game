@@ -48,9 +48,7 @@ class Game {
 
 		elapsedSeconds = elapsedSeconds - elapsedMinutes * 60;
 
-		const winningMessage = `You finished in ${elapsedSeconds} seconds and ${elapsedMinutes} minutes.`;
-
-		return winningMessage;
+		return [elapsedSeconds, elapsedMinutes];
 	}
 	static clearCanvas() {
 		ctx.fillStyle = "#f0f0f0";
@@ -98,12 +96,21 @@ class Game {
 	}
 	static update() {
 		scenes[currentScene - 1]();
+
+		if(gameIsRunning) {
+			UserInterface.displayText(unitSize * 9, unitSize * 1, "40px", `${this.calculateTime()[1]} : ${this.calculateTime()[0]}`);
+		}
 	}
 	static winningScene() {
 		if (gameIsRunning) {
 			this.clearCanvas();
 
-			UserInterface.displayText(unitSize * 2, unitSize * 4, "40px",  this.calculateTime());
+			const elapsedSeconds = this.calculateTime()[0];
+			const elapsedMinutes = this.calculateTime()[1];
+
+			const winningMessage = `You finished in ${elapsedSeconds} seconds and ${elapsedMinutes} minutes.`;
+
+			UserInterface.displayText(unitSize * 2, unitSize * 4, "40px",  winningMessage);
 			UserInterface.displayText(unitSize * 7, unitSize * 5, "30px", "(Press f5 to restart)");	
 			
 			gameIsRunning = false;
