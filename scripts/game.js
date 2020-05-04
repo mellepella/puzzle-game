@@ -56,16 +56,16 @@ class Game {
 	}
 	static detectKeyPress(event) {
 		if(event.charCode === keyCodes.w) {
-			playerCube.goUp();
+			playerCube.go('up');
 		}
 		else if(event.charCode === keyCodes.s) {
-			playerCube.goDown();
+			playerCube.go('down');
 		}
 		else if(event.charCode === keyCodes.a) {
-			playerCube.goLeft();
+			playerCube.go('left');
 		}
 		else if(event.charCode === keyCodes.d) {
-			playerCube.goRight();
+			playerCube.go('right');
 		}
 		else if(event.charCode === keyCodes.r) {
 			Game.restart();
@@ -87,6 +87,7 @@ class Game {
 
 		this.clearCanvas();
 		playerCube.update();
+
 		CubeCreator.createWinningCube(unitSize * 4, unitSize * 3).update();
 
 		CubeCreator.createObstacle(unitSize * 12, unitSize * 7).update();
@@ -96,10 +97,11 @@ class Game {
 	}
 	static update() {
 		scenes[currentScene - 1]();
-
+		
 		if(gameIsRunning) {
 			UserInterface.displayText(unitSize * 9, unitSize * 1, "40px", `${this.calculateTime()[1]} : ${this.calculateTime()[0]}`);
 		}
+
 	}
 	static winningScene() {
 		if (gameIsRunning) {
