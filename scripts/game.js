@@ -33,7 +33,7 @@ let gameIsRunning = true;
 
 const playerVelocity = 5;
 
-const updateTime = 10;
+const updateTime = 5;
 
 const unitSize = 50;
 
