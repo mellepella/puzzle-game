@@ -55,20 +55,26 @@ class Game {
 		ctx.fillRect(0, 0, window.innerWidth, window.innerHeight)
 	}
 	static detectKeyPress(event) {
-		if(event.charCode === keyCodes.w) {
-			playerCube.go('up');
-		}
-		else if(event.charCode === keyCodes.s) {
-			playerCube.go('down');
-		}
-		else if(event.charCode === keyCodes.a) {
-			playerCube.go('left');
-		}
-		else if(event.charCode === keyCodes.d) {
-			playerCube.go('right');
-		}
-		else if(event.charCode === keyCodes.r) {
-			Game.restart();
+		switch(event.charCode) {
+			case keyCodes.w:
+				playerCube.go('up');
+				break;
+			
+			case keyCodes.s:
+				playerCube.go('down');
+				break;
+
+			case keyCodes.a:
+				playerCube.go('left');
+				break;
+			
+			case keyCodes.d:
+				playerCube.go('right');
+				break;
+			
+			case keyCodes.r:
+				this.restart();
+				break;
 		}
 	}
 	static restart() {

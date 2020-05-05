@@ -44,25 +44,30 @@ class PlayerCube extends Cube {
 			return;
 		}
 		else {
-			if(direction === 'up') {
-				this.velocityY = -playerVelocity;
-				this.isMoving = true;
-				this.moveDirection = 'up';
-			}
-			else if(direction === 'down') {
-				this.velocityY = playerVelocity;
-				this.isMoving = true;
-				this.moveDirection = 'down';
-			}
-			else if(direction === 'left') {
-				this.velocityX = -playerVelocity;
-				this.isMoving = true;
-				this.moveDirection = 'left';
-			}
-			else if(direction === 'right') {
-				this.velocityX = playerVelocity;
-				this.isMoving = true;
-				this.moveDirection = 'right';
+			switch(direction) {
+				case 'up':
+					this.velocityY = -playerVelocity;
+					this.isMoving = true;
+					this.moveDirection = 'up';
+					break;
+
+				case 'down':
+					this.velocityY = playerVelocity;
+					this.isMoving = true;
+					this.moveDirection = 'down';
+					break;
+				
+				case 'left':
+					this.velocityX = -playerVelocity;
+					this.isMoving = true;
+					this.moveDirection = 'left';
+					break;
+					
+				case 'right':
+					this.velocityX = playerVelocity;
+					this.isMoving = true;
+					this.moveDirection = 'right';
+					break;
 			}
 		}	
 	}
