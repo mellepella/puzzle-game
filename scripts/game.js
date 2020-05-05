@@ -48,29 +48,33 @@ class Game {
 
 		elapsedSeconds = elapsedSeconds - elapsedMinutes * 60;
 
-		const winningMessage = `You finished in ${elapsedSeconds} seconds and ${elapsedMinutes} minutes.`;
-
-		return winningMessage;
+		return [elapsedSeconds, elapsedMinutes];
 	}
 	static clearCanvas() {
 		ctx.fillStyle = "#f0f0f0";
 		ctx.fillRect(0, 0, window.innerWidth, window.innerHeight)
 	}
 	static detectKeyPress(event) {
-		if(event.charCode === keyCodes.w) {
-			playerCube.goUp();
-		}
-		else if(event.charCode === keyCodes.s) {
-			playerCube.goDown();
-		}
-		else if(event.charCode === keyCodes.a) {
-			playerCube.goLeft();
-		}
-		else if(event.charCode === keyCodes.d) {
-			playerCube.goRight();
-		}
-		else if(event.charCode === keyCodes.r) {
-			Game.restart();
+		switch(event.charCode) {
+			case keyCodes.w:
+				playerCube.go('up');
+				break;
+			
+			case keyCodes.s:
+				playerCube.go('down');
+				break;
+
+			case keyCodes.a:
+				playerCube.go('left');
+				break;
+			
+			case keyCodes.d:
+				playerCube.go('right');
+				break;
+			
+			case keyCodes.r:
+				this.restart();
+				break;
 		}
 	}
 	static restart() {
@@ -91,6 +95,7 @@ class Game {
 	static two() {
 		this.clearCanvas();
 		playerCube.update();
+
 		CubeCreator.createWinningCube(unitSize * 4, unitSize * 3).update();
 
 		CubeCreator.createObstacle(unitSize * 7, unitSize * 2).update(); 
@@ -136,11 +141,24 @@ class Game {
 
 		CubeCreator.createObstacle(unitSize * 10, unitSize * 8).update();
 	}
+	static update() {
+		scenes[currentScene - 1]();
+		
+		if(gameIsRunning) {
+			UserInterface.displayText(unitSize * 9, unitSize * 1, "40px", `${this.calculateTime()[1]} : ${this.calculateTime()[0]}`);
+		}
+
+	}
 	static winningScene() {
 		if (gameIsRunning) {
 			this.clearCanvas();
 
-			UserInterface.displayText(unitSize * 2, unitSize * 4, "40px",  this.calculateTime());
+			const elapsedSeconds = this.calculateTime()[0];
+			const elapsedMinutes = this.calculateTime()[1];
+
+			const winningMessage = `You finished in ${elapsedSeconds} seconds and ${elapsedMinutes} minutes.`;
+
+			UserInterface.displayText(unitSize * 2, unitSize * 4, "40px",  winningMessage);
 			UserInterface.displayText(unitSize * 7, unitSize * 5, "30px", "(Press f5 to restart)");	
 			
 			gameIsRunning = false;

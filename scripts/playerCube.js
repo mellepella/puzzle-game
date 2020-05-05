@@ -1,16 +1,11 @@
 
-class PlayerCube {
-	constructor(startX, startY) {
-		this.color = 'orange';
+class PlayerCube extends Cube {
+	constructor(x, y, color) {
+		super(x, y, 'orange');
 
-		this.startX = startX;
-		this.startY = startY;
+		this.startX = this.x;
+		this.startY = this.y;
 	
-		this.x = startX;
-		this.y = startY;
-	
-		this.size = unitSize;
-
 		this.velocityX = 0;
 		this.velocityY = 0;
 
@@ -21,12 +16,8 @@ class PlayerCube {
 		this.moveDirection;
 	}
 	update() {
-		this.draw();
+		super.update()
 		this.move();
-	}
-	draw() {
-		ctx.fillStyle = this.color;
-		ctx.fillRect(this.x, this.y, this.size, this.size);
 	}
 	move() {
 		this.x += this.velocityX;
@@ -47,46 +38,37 @@ class PlayerCube {
 		this.isColliding = true;
 
 		this.isMoving = false;
-	}	
-	goUp() {
-		if(this.isMoving) {
-			return;
-		}
-		else {
-			this.velocityY = -playerVelocity;
-			this.isMoving = true;
-			this.moveDirection = 'up';
-		}
 	}
-	goDown() {
+	go(direction) {
 		if(this.isMoving) {
 			return;
 		}
 		else {
-			this.velocityY = playerVelocity;
-			this.isMoving = true;
-			this.moveDirection = 'down';
-		}
-	}
-	goLeft() {
-		if(this.isMoving) {
-			return;
-		}
-		else {
-			this.velocityX = -playerVelocity;
-			this.isMoving = true;
-			this.moveDirection = 'left';
-		}
-		
-	}
-	goRight() {
-		if(this.isMoving) {
-			return;
-		}
-		else {
-			this.velocityX = playerVelocity;
-			this.isMoving = true;
-			this.moveDirection = 'right';
-		}
+			switch(direction) {
+				case 'up':
+					this.velocityY = -playerVelocity;
+					this.isMoving = true;
+					this.moveDirection = 'up';
+					break;
+
+				case 'down':
+					this.velocityY = playerVelocity;
+					this.isMoving = true;
+					this.moveDirection = 'down';
+					break;
+				
+				case 'left':
+					this.velocityX = -playerVelocity;
+					this.isMoving = true;
+					this.moveDirection = 'left';
+					break;
+					
+				case 'right':
+					this.velocityX = playerVelocity;
+					this.isMoving = true;
+					this.moveDirection = 'right';
+					break;
+			}
+		}	
 	}
 }
