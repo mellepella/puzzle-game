@@ -15,11 +15,11 @@ const keyCodes = {
 }
 
 const scenes = [
-	function() { Scenes.one() },
-	function() { Scenes.two() },
-	function() { Scenes.three() },
-	function() { Scenes.four() },
-	function() { Scenes.winningScene() }
+	Scenes.one,
+	Scenes.two,
+	Scenes.three,
+	Scenes.four,
+	Scenes.winningScene
 ]
 
 const canvasWidth = 1000;
