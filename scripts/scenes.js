@@ -1,14 +1,9 @@
 class Scenes {
     static one() {
-		Game.clearCanvas();
-		playerCube.update();
 		CubeCreator.createWinningCube(unitSize * 6, unitSize * 4).update();
 	}
 
 	static two() {
-		Game.clearCanvas();
-		playerCube.update();
-
 		CubeCreator.createWinningCube(unitSize * 4, unitSize * 3).update();
 
 		CubeCreator.createObstacle(unitSize * 7, unitSize * 2).update(); 
@@ -18,8 +13,6 @@ class Scenes {
 	}
 
 	static three() {
-		Game.clearCanvas();
-		playerCube.update();
 		CubeCreator.createWinningCube(unitSize * 12, unitSize * 7).update();
 
 		CubeCreator.createObstacle(unitSize * 9, unitSize * 2).update();
@@ -36,8 +29,6 @@ class Scenes {
 	}
 
 	static four() {
-		Game.clearCanvas();
-		playerCube.update();
 		CubeCreator.createWinningCube(unitSize * 6, unitSize * 2).update();
 
 		CubeCreator.createObstacle(unitSize * 13, unitSize * 1).update();
@@ -59,12 +50,12 @@ class Scenes {
 	
     static winningScene() {
 		if (gameIsRunning) {
-			Game.clearCanvas();
-
 			const elapsedSeconds = Game.calculateTime()[0];
 			const elapsedMinutes = Game.calculateTime()[1];
 
 			const winningMessage = `You finished in ${elapsedSeconds} seconds and ${elapsedMinutes} minutes.`;
+
+			Game.clearCanvas();
 
 			UserInterface.displayText(unitSize * 2, unitSize * 4, "40px",  winningMessage);
 			UserInterface.displayText(unitSize * 7, unitSize * 5, "30px", "(Press f5 to restart)");	

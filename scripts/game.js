@@ -95,13 +95,15 @@ class Game {
 	}
 
 	static update() {
-		scenes[currentScene - 1]();
-		
 		if(gameIsRunning) {
+			Game.clearCanvas();
+			playerCube.update();
 			UserInterface.displayText(unitSize * 9, unitSize * 1, "40px", `${this.calculateTime()[1]} : ${this.calculateTime()[0]}`);
 		}
+
+		scenes[currentScene - 1]();
 	}
-	
+
 }
 
 // Animate
