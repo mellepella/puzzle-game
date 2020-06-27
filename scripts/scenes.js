@@ -58,7 +58,7 @@ class Scenes {
 		CubeCreator.create(ObstacleCube, 10, 8).update();
 	}
 	
-    static winningScene() {
+	static winningScene() {
 		if (gameIsRunning) {
 			const elapsedSeconds = Game.calculateTime()[0];
 			const elapsedMinutes = Game.calculateTime()[1];
