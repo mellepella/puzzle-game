@@ -1,9 +1,14 @@
 class Scenes {
-    static one() {	
+    static one() {
+		UserInterface.displayText(4, 1, '25px', tutorialText[0]);
+		UserInterface.displayText(7, 2, '15px', tutorialText[1]);
+		
 		CubeCreator.create(WinningCube, 6, 4).update();
 	}
 
 	static two() {
+		UserInterface.displayText(3, 1, '25px', tutorialText[2]);
+
 		CubeCreator.create(WinningCube, 4, 3).update();
 
 		CubeCreator.create(ObstacleCube, 7, 2).update(); 
@@ -13,6 +18,8 @@ class Scenes {
 	}
 
 	static three() {
+		UserInterface.displayText(2, 1, '25px', tutorialText[3]);
+
 		CubeCreator.create(WinningCube, 12, 7).update();
 
 		CubeCreator.create(ObstacleCube, 9, 2).update();
@@ -29,6 +36,9 @@ class Scenes {
 	}
 
 	static four() {
+		UserInterface.displayText(0.5, 1, '25px', tutorialText[4]);
+		UserInterface.displayText(0.5, 1.5, '15px', tutorialText[5]);
+
 		CubeCreator.create(WinningCube, 6, 2).update();
 
 		CubeCreator.create(ObstacleCube, 13, 1).update();
@@ -61,8 +71,6 @@ class Scenes {
 			UserInterface.displayText(7, 5, "30px", "(Press f5 to restart)");	
 			
             gameIsRunning = false;
-            
-            console.log('You won!');
         }
 	}
 	 

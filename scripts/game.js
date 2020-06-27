@@ -6,6 +6,15 @@ const oneSecond = 1000;
 
 // Variables used all around
 
+const tutorialText = [
+	'Get to the yellow Cube to proceed to the next level!',
+	'(Use the W, A, S, D keys to move around)',
+	'Use the obstacles to stop and change the direction you\'re going!',
+	'If you get stuck, press the R key to restart from the start of the level.',
+	'Try to finish the levels as fast as you can!',
+	'Your time will be displayed in the right upper corner. Good luck!' 
+]
+
 const keyCodes = {
 	'w': 119,
 	'a': 97,
@@ -98,9 +107,9 @@ class Game {
 		if(gameIsRunning) {
 			Game.clearCanvas();
 			playerCube.update();
-			UserInterface.displayText(unitSize * 9, unitSize * 1, "40px", `${this.calculateTime()[1]} : ${this.calculateTime()[0]}`);
+			UserInterface.displayText(18, 1, "25px", `${this.calculateTime()[1]} : ${this.calculateTime()[0]}`);
 		}
-		
+
 		scenes[currentScene - 1]();
 	}
 
