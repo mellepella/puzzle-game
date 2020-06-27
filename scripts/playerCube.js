@@ -15,10 +15,12 @@ class PlayerCube extends Cube {
 		
 		this.moveDirection;
 	}
+
 	update() {
 		super.update()
 		this.move();
 	}
+
 	move() {
 		this.x += this.velocityX;
 		this.y += this.velocityY;
@@ -28,6 +30,7 @@ class PlayerCube extends Cube {
 			this.isColliding = false;
 		}
 	}
+
 	stop(x, y) {
 		this.x = x;
 		this.y = y;
@@ -39,6 +42,7 @@ class PlayerCube extends Cube {
 
 		this.isMoving = false;
 	}
+
 	go(direction) {
 		if(this.isMoving) {
 			return;
@@ -71,4 +75,5 @@ class PlayerCube extends Cube {
 			}
 		}	
 	}
+	
 }

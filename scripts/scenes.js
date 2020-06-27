@@ -4,6 +4,7 @@ class Scenes {
 		playerCube.update();
 		CubeCreator.createWinningCube(unitSize * 6, unitSize * 4).update();
 	}
+
 	static two() {
 		Game.clearCanvas();
 		playerCube.update();
@@ -15,6 +16,7 @@ class Scenes {
 		CubeCreator.createObstacle(unitSize * 6, unitSize * 6).update();
 		CubeCreator.createObstacle(unitSize * 12, unitSize * 7).update();
 	}
+
 	static three() {
 		Game.clearCanvas();
 		playerCube.update();
@@ -32,6 +34,7 @@ class Scenes {
 		CubeCreator.createObstacle(unitSize * 11, unitSize * 7).update();
 
 	}
+
 	static four() {
 		Game.clearCanvas();
 		playerCube.update();
@@ -52,7 +55,8 @@ class Scenes {
 		CubeCreator.createObstacle(unitSize * 5, unitSize * 7).update();
 
 		CubeCreator.createObstacle(unitSize * 10, unitSize * 8).update();
-    }
+	}
+	
     static winningScene() {
 		if (gameIsRunning) {
 			Game.clearCanvas();
@@ -69,5 +73,6 @@ class Scenes {
             
             console.log('You won!');
         }
-    } 
+	}
+	 
 }

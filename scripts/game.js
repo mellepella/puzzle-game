@@ -59,10 +59,12 @@ class Game {
 
 		return [elapsedSeconds, elapsedMinutes];
 	}
+
 	static clearCanvas() {
 		ctx.fillStyle = "#f0f0f0";
 		ctx.fillRect(0, 0, window.innerWidth, window.innerHeight)
 	}
+
 	static detectKeyPress(event) {
 		switch(event.charCode) {
 			case keyCodes.w:
@@ -86,10 +88,12 @@ class Game {
 				break;
 		}
 	}
+
 	static restart() {
 		playerCube.stop(startingX, startingY);
 		playerCube.isColliding = false;
 	}
+
 	static update() {
 		scenes[currentScene - 1]();
 		
@@ -97,6 +101,7 @@ class Game {
 			UserInterface.displayText(unitSize * 9, unitSize * 1, "40px", `${this.calculateTime()[1]} : ${this.calculateTime()[0]}`);
 		}
 	}
+	
 }
 
 // Animate

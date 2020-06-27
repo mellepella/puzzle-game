@@ -4,14 +4,17 @@ class CubeCreator {
 
 		return obstacle;
 	}
+
 	static createWinningCube(x, y) {
 		var winningCube = new WinningCube(x, y);
 		
 		return winningCube;
 	}
+
 	static createPlayerCube(x, y) {
 		var playerCube = new PlayerCube(x, y);
 
 		return playerCube;
 	}
+	
 }

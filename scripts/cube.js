@@ -6,15 +6,18 @@ class Cube {
         this.size = unitSize;
         
         this.color = color;
-    }
+	}
+	
     update() {
 		this.draw();
 		this.detectCollision();
 	}
+
 	draw() {
 		ctx.fillStyle = this.color;
 		ctx.fillRect(this.x, this.y, this.size, this.size);
 	}
+
 	detectCollision() {
 		
 		// Detect collision from right and left
@@ -40,7 +43,9 @@ class Cube {
 		&& this.y + this.size > playerCube.y) {
 			this.onCollision('bottom');
 		}
-    }
+	}
+	
     onCollision(collisionSide) {
-    }
+	}
+	
 }
