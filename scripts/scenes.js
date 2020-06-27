@@ -1,51 +1,51 @@
 class Scenes {
-    static one() {
-		CubeCreator.createWinningCube(unitSize * 6, unitSize * 4).update();
+    static one() {	
+		CubeCreator.create(WinningCube, unitSize * 6, unitSize * 4).update();
 	}
 
 	static two() {
-		CubeCreator.createWinningCube(unitSize * 4, unitSize * 3).update();
+		CubeCreator.create(WinningCube, unitSize * 4, unitSize * 3).update();
 
-		CubeCreator.createObstacle(unitSize * 7, unitSize * 2).update(); 
-		CubeCreator.createObstacle(unitSize * 13, unitSize * 4).update();
-		CubeCreator.createObstacle(unitSize * 6, unitSize * 6).update();
-		CubeCreator.createObstacle(unitSize * 12, unitSize * 7).update();
+		CubeCreator.create(ObstacleCube, unitSize * 7, unitSize * 2).update(); 
+		CubeCreator.create(ObstacleCube, unitSize * 13, unitSize * 4).update();
+		CubeCreator.create(ObstacleCube, unitSize * 6, unitSize * 6).update();
+		CubeCreator.create(ObstacleCube, unitSize * 12, unitSize * 7).update();
 	}
 
 	static three() {
-		CubeCreator.createWinningCube(unitSize * 12, unitSize * 7).update();
+		CubeCreator.create(WinningCube, unitSize * 12, unitSize * 7).update();
 
-		CubeCreator.createObstacle(unitSize * 9, unitSize * 2).update();
+		CubeCreator.create(ObstacleCube, unitSize * 9, unitSize * 2).update();
 
-		CubeCreator.createObstacle(unitSize * 6, unitSize * 4).update();
-		CubeCreator.createObstacle(unitSize * 12, unitSize * 4).update();
+		CubeCreator.create(ObstacleCube, unitSize * 6, unitSize * 4).update();
+		CubeCreator.create(ObstacleCube, unitSize * 12, unitSize * 4).update();
 
-		CubeCreator.createObstacle(unitSize * 13, unitSize * 5).update();
+		CubeCreator.create(ObstacleCube, unitSize * 13, unitSize * 5).update();
 
-		CubeCreator.createObstacle(unitSize * 5, unitSize * 6).update();
+		CubeCreator.create(ObstacleCube, unitSize * 5, unitSize * 6).update();
 
-		CubeCreator.createObstacle(unitSize * 11, unitSize * 7).update();
+		CubeCreator.create(ObstacleCube, unitSize * 11, unitSize * 7).update();
 
 	}
 
 	static four() {
-		CubeCreator.createWinningCube(unitSize * 6, unitSize * 2).update();
+		CubeCreator.create(WinningCube, unitSize * 6, unitSize * 2).update();
 
-		CubeCreator.createObstacle(unitSize * 13, unitSize * 1).update();
+		CubeCreator.create(ObstacleCube, unitSize * 13, unitSize * 1).update();
 
-		CubeCreator.createObstacle(unitSize * 9, unitSize * 2).update();
+		CubeCreator.create(ObstacleCube, unitSize * 9, unitSize * 2).update();
 
-		CubeCreator.createObstacle(unitSize * 12, unitSize * 4).update();
-		CubeCreator.createObstacle(unitSize * 8, unitSize * 4).update();
+		CubeCreator.create(ObstacleCube, unitSize * 12, unitSize * 4).update();
+		CubeCreator.create(ObstacleCube, unitSize * 8, unitSize * 4).update();
 
-		CubeCreator.createObstacle(unitSize * 14, unitSize * 5).update();
+		CubeCreator.create(ObstacleCube, unitSize * 14, unitSize * 5).update();
 
-		CubeCreator.createObstacle(unitSize * 7, unitSize * 6).update();
+		CubeCreator.create(ObstacleCube, unitSize * 7, unitSize * 6).update();
 
-		CubeCreator.createObstacle(unitSize * 11, unitSize * 7).update();
-		CubeCreator.createObstacle(unitSize * 5, unitSize * 7).update();
+		CubeCreator.create(ObstacleCube, unitSize * 11, unitSize * 7).update();
+		CubeCreator.create(ObstacleCube, unitSize * 5, unitSize * 7).update();
 
-		CubeCreator.createObstacle(unitSize * 10, unitSize * 8).update();
+		CubeCreator.create(ObstacleCube, unitSize * 10, unitSize * 8).update();
 	}
 	
     static winningScene() {

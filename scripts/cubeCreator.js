@@ -1,20 +1,8 @@
 class CubeCreator {
-	static createObstacle(x, y) {
-		var obstacle = new ObstacleCube(x, y);
+	static create(type, x, y) {
 
-		return obstacle;
+		var creation = new type(x, y);
+
+		return creation;
 	}
-
-	static createWinningCube(x, y) {
-		var winningCube = new WinningCube(x, y);
-		
-		return winningCube;
-	}
-
-	static createPlayerCube(x, y) {
-		var playerCube = new PlayerCube(x, y);
-
-		return playerCube;
-	}
-	
 }
