@@ -23,14 +23,6 @@ const keyCodes = {
 	'r': 114
 }
 
-const scenes = [
-	Scenes.one,
-	Scenes.two,
-	Scenes.three,
-	Scenes.four,
-	Scenes.winningScene
-]
-
 const canvasWidth = 1000;
 const canvasHeight = 500;
 
@@ -110,7 +102,7 @@ class Game {
 			UserInterface.displayText(18, 1, "25px", `${this.calculateTime()[1]} : ${this.calculateTime()[0]}`);
 		}
 
-		scenes[currentScene - 1]();
+		scenes[currentScene - 1].forEach(element => element());
 	}
 
 }
