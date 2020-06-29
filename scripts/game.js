@@ -23,11 +23,11 @@ const font = "Arial";
 
 let gameIsRunning = true;
 
-const playerVelocity = 5;
-
 const updateTime = 5;
 
 const unitSize = 100;
+
+const playerVelocity = unitSize/10;
 
 let startingX = unitSize * 9;
 let startingY = unitSize * 4;
