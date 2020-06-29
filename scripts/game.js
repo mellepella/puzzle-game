@@ -14,8 +14,8 @@ const KEY_CODES = {
 	'r': 114
 }
 
-const canvasWidth = 1000;
-const canvasHeight = 500;
+const canvasWidth = 2000;
+const canvasHeight = 1000;
 
 let currentScene = 1;
 
@@ -27,7 +27,7 @@ const playerVelocity = 5;
 
 const updateTime = 5;
 
-const unitSize = 50;
+const unitSize = 100;
 
 let startingX = unitSize * 9;
 let startingY = unitSize * 4;
@@ -90,7 +90,7 @@ class Game {
 		if(gameIsRunning) {
 			Game.clearCanvas();
 			playerCube.update();
-			UserInterface.displayText( {x: 18, y: 1, size: "25px", content: `${this.calculateTime()[1]} : ${this.calculateTime()[0]}`} );
+			UserInterface.displayText( {x: 18, y: 1, size: "40px", content: `${this.calculateTime()[1]} : ${this.calculateTime()[0]}`} );
 		}
 
 		scenes[currentScene - 1].forEach(element => element());
