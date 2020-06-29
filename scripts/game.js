@@ -6,7 +6,7 @@ const oneSecond = 1000;
 
 // Variables used all around
 
-const keyCodes = {
+const KEY_CODES = {
 	'w': 119,
 	'a': 97,
 	's': 115,
@@ -59,23 +59,23 @@ class Game {
 
 	static detectKeyPress(event) {
 		switch(event.charCode) {
-			case keyCodes.w:
+			case KEY_CODES.w:
 				playerCube.go('up');
 				break;
 			
-			case keyCodes.s:
+			case KEY_CODES.s:
 				playerCube.go('down');
 				break;
 
-			case keyCodes.a:
+			case KEY_CODES.a:
 				playerCube.go('left');
 				break;
 			
-			case keyCodes.d:
+			case KEY_CODES.d:
 				playerCube.go('right');
 				break;
 			
-			case keyCodes.r:
+			case KEY_CODES.r:
 				this.restart();
 				break;
 		}
