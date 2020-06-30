@@ -93,7 +93,7 @@ class Game {
 			UserInterface.displayText( {x: 18, y: 1, size: "25px", content: `${this.calculateTime()[1]} : ${this.calculateTime()[0]}`} );
 		}
 
-		scenes[currentScene - 1].forEach(element => element());
+		scenes[currentScene - 1]();
 	}
 
 }
