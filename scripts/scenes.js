@@ -8,8 +8,8 @@ class Scenes {
 
 			Game.clearCanvas();
 
-			UserInterface.displayText( {x: 2, y: 4, size: "40px",  content: winningMessage} );
-			UserInterface.displayText( {x: 7, y: 5, size: "30px", content: "(Press f5 to restart)"} );	
+			UserInterface.displayText( {x: 4, y: 4, size: "60px",  content: winningMessage} );
+			UserInterface.displayText( {x: 8, y: 5, size: "40px", content: "(Press f5 to restart)"} );	
 			
             gameIsRunning = false;
         }
@@ -18,7 +18,7 @@ class Scenes {
 }
 
 const scenes = [
-	() => {
+  () => {
 		CubeCreator.create(WinningCube, 6, 4).update();
 		UserInterface.displayText( {x: 4, y: 1, size: '25px', content: 'Get to the yellow Cube to proceed to the next level!'} );
 		UserInterface.displayText( {x: 7, y: 2, size: '15px', content: '(Use the W, A, S, D keys to move around)'} );
@@ -59,4 +59,3 @@ const scenes = [
 		Scenes.winningScene();
 	}
 ]
- 
