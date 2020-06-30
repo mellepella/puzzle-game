@@ -44,6 +44,17 @@ const scenes = [
 	() => {
 		UserInterface.displayText( {x: 0.5, y: 1, size: '40px', content: 'Try to finish the levels as fast as you can!'} );
 		UserInterface.displayText( {x: 0.5, y: 1.5, size: '25px', content: 'Your time will be displayed in the right upper corner. Good luck!'} );
+		CubeCreator.create(WinningCube, 9, 1).update();
+		CubeCreator.create(ObstacleCube, 9, 2).update();
+		CubeCreator.create(ObstacleCube, 9, 6).update();
+		CubeCreator.create(ObstacleCube, 11, 4).update();
+		CubeCreator.create(ObstacleCube, 10, 2).update();
+		CubeCreator.create(ObstacleCube, 5, 3).update();
+		CubeCreator.create(ObstacleCube, 6, 7).update();
+		CubeCreator.create(ObstacleCube, 4, 5).update();
+		CubeCreator.create(ObstacleCube, 8, 0).update();
+	},
+	() => {
 		CubeCreator.create(WinningCube, 6, 2).update();
 		CubeCreator.create(ObstacleCube, 13, 1).update();
 		CubeCreator.create(ObstacleCube, 9, 2).update();
