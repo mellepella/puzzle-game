@@ -18,13 +18,13 @@ class Scenes {
 }
 
 const scenes = [
-  () => {
+  	() => {
 		CubeCreator.create(WinningCube, 6, 4).update();
-		UserInterface.displayText( {x: 4, y: 1, size: '25px', content: 'Get to the yellow Cube to proceed to the next level!'} );
-		UserInterface.displayText( {x: 7, y: 2, size: '15px', content: '(Use the W, A, S, D keys to move around)'} );
+		UserInterface.displayText( {x: 5, y: 1, size: '40px', content: 'Get to the yellow Cube to proceed to the next level!'} );
+		UserInterface.displayText( {x: 6.5, y: 2, size: '30px', content: '(Use the W, A, S, D keys to move around)'} );
 	},
 	() => {
-		UserInterface.displayText( {x: 3, y: 1, size: '25px', content: 'Use the obstacles to stop and change the direction you\'re going!'} );
+		UserInterface.displayText( {x: 4, y: 1, size: '40px', content: 'Use the obstacles to stop and change the direction you\'re going!'} );
 		CubeCreator.create(WinningCube, 4, 3).update();
 		CubeCreator.create(ObstacleCube, 7, 2).update();
 		CubeCreator.create(ObstacleCube, 13, 4).update();
@@ -32,7 +32,7 @@ const scenes = [
 		CubeCreator.create(ObstacleCube, 12, 7).update();
 	},
 	() => {
-		UserInterface.displayText( {x: 2, y: 1, size: '25px', content: 'If you get stuck, press the R key to restart from the start of the level.'} );
+		UserInterface.displayText( {x: 3.5, y: 1, size: '40px', content: 'If you get stuck, press the R key to restart from the start of the level.'} );
 		CubeCreator.create(WinningCube, 12, 7).update();
 		CubeCreator.create(ObstacleCube, 9, 2).update();
 		CubeCreator.create(ObstacleCube, 6, 4).update();
@@ -42,8 +42,8 @@ const scenes = [
 		CubeCreator.create(ObstacleCube, 11, 7).update();
 	},
 	() => {
-		UserInterface.displayText( {x: 0.5, y: 1, size: '25px', content: 'Try to finish the levels as fast as you can!'} );
-		UserInterface.displayText( {x: 0.5, y: 1.5, size: '15px', content: 'Your time will be displayed in the right upper corner. Good luck!'} );
+		UserInterface.displayText( {x: 0.5, y: 1, size: '40px', content: 'Try to finish the levels as fast as you can!'} );
+		UserInterface.displayText( {x: 0.5, y: 1.5, size: '25px', content: 'Your time will be displayed in the right upper corner. Good luck!'} );
 		CubeCreator.create(WinningCube, 6, 2).update();
 		CubeCreator.create(ObstacleCube, 13, 1).update();
 		CubeCreator.create(ObstacleCube, 9, 2).update();
