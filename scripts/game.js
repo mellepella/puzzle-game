@@ -90,7 +90,7 @@ class Game {
 		if(gameIsRunning) {
 			Game.clearCanvas();
 			playerCube.update();
-			UserInterface.displayText( {x: 18, y: 1, size: "40px", content: `${this.calculateTime()[1]} : ${this.calculateTime()[0]}`} );
+			UserInterface.displayText( {x: 17, y: 1, size: "40px", content: `${this.calculateTime()[1]} : ${this.calculateTime()[0]}`} );
 		}
 
 		scenes[currentScene - 1]();

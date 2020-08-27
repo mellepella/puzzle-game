@@ -4,7 +4,7 @@ class Scenes {
 			const elapsedSeconds = Game.calculateTime()[0];
 			const elapsedMinutes = Game.calculateTime()[1];
 
-			const winningMessage = `You finished in ${elapsedSeconds} seconds and ${elapsedMinutes} minutes.`;
+			const winningMessage = `You finished in ${elapsedMinutes} minute(s) and ${elapsedSeconds} second(s).`;
 
 			Game.clearCanvas();
 
@@ -44,6 +44,17 @@ const scenes = [
 	() => {
 		UserInterface.displayText( {x: 0.5, y: 1, size: '40px', content: 'Try to finish the levels as fast as you can!'} );
 		UserInterface.displayText( {x: 0.5, y: 1.5, size: '25px', content: 'Your time will be displayed in the right upper corner. Good luck!'} );
+		CubeCreator.create(WinningCube, 9, 1).update();
+		CubeCreator.create(ObstacleCube, 9, 2).update();
+		CubeCreator.create(ObstacleCube, 9, 6).update();
+		CubeCreator.create(ObstacleCube, 11, 4).update();
+		CubeCreator.create(ObstacleCube, 10, 2).update();
+		CubeCreator.create(ObstacleCube, 5, 3).update();
+		CubeCreator.create(ObstacleCube, 6, 7).update();
+		CubeCreator.create(ObstacleCube, 4, 5).update();
+		CubeCreator.create(ObstacleCube, 8, 0).update();
+	},
+	() => {
 		CubeCreator.create(WinningCube, 6, 2).update();
 		CubeCreator.create(ObstacleCube, 13, 1).update();
 		CubeCreator.create(ObstacleCube, 9, 2).update();
@@ -54,6 +65,26 @@ const scenes = [
 		CubeCreator.create(ObstacleCube, 11, 7).update();
 		CubeCreator.create(ObstacleCube, 5, 7).update();
 		CubeCreator.create(ObstacleCube, 10, 8).update();
+	},
+	() => {
+		CubeCreator.create(WinningCube, 7, 7).update();
+		CubeCreator.create(ObstacleCube, 9, 7).update();
+		CubeCreator.create(ObstacleCube, 6, 5).update();
+		CubeCreator.create(ObstacleCube, 11, 6).update();
+		CubeCreator.create(ObstacleCube, 10, 1).update();
+		CubeCreator.create(ObstacleCube, 8, 2).update();
+		CubeCreator.create(ObstacleCube, 12, 2).update();
+	},
+	() => {
+		CubeCreator.create(WinningCube, 8, 7).update();
+		CubeCreator.create(ObstacleCube, 6, 4).update();
+		CubeCreator.create(ObstacleCube, 7, 1).update();
+		CubeCreator.create(ObstacleCube, 5, 2).update();
+		CubeCreator.create(ObstacleCube, 11, 3).update();
+		CubeCreator.create(ObstacleCube, 6, 5).update();
+		CubeCreator.create(ObstacleCube, 10, 0).update();
+		CubeCreator.create(ObstacleCube, 10, 6).update();
+		CubeCreator.create(ObstacleCube, 11, 4).update();
 	},
 	() => {
 		Scenes.winningScene();
