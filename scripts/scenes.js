@@ -55,18 +55,6 @@ const scenes = [
 		CubeCreator.create(ObstacleCube, 8, 0).update();
 	},
 	() => {
-		CubeCreator.create(WinningCube, 6, 2).update();
-		CubeCreator.create(ObstacleCube, 13, 1).update();
-		CubeCreator.create(ObstacleCube, 9, 2).update();
-		CubeCreator.create(ObstacleCube, 12, 4).update();
-		CubeCreator.create(ObstacleCube, 8, 4).update();
-		CubeCreator.create(ObstacleCube, 14, 5).update();
-		CubeCreator.create(ObstacleCube, 7, 6).update();
-		CubeCreator.create(ObstacleCube, 11, 7).update();
-		CubeCreator.create(ObstacleCube, 5, 7).update();
-		CubeCreator.create(ObstacleCube, 10, 8).update();
-	},
-	() => {
 		CubeCreator.create(WinningCube, 7, 7).update();
 		CubeCreator.create(ObstacleCube, 9, 7).update();
 		CubeCreator.create(ObstacleCube, 6, 5).update();
@@ -85,6 +73,30 @@ const scenes = [
 		CubeCreator.create(ObstacleCube, 10, 0).update();
 		CubeCreator.create(ObstacleCube, 10, 6).update();
 		CubeCreator.create(ObstacleCube, 11, 4).update();
+	},
+	() => {
+		CubeCreator.create(WinningCube, 6, 2).update();
+		CubeCreator.create(ObstacleCube, 13, 1).update();
+		CubeCreator.create(ObstacleCube, 9, 2).update();
+		CubeCreator.create(ObstacleCube, 12, 4).update();
+		CubeCreator.create(ObstacleCube, 8, 4).update();
+		CubeCreator.create(ObstacleCube, 14, 5).update();
+		CubeCreator.create(ObstacleCube, 7, 6).update();
+		CubeCreator.create(ObstacleCube, 11, 7).update();
+		CubeCreator.create(ObstacleCube, 5, 7).update();
+		CubeCreator.create(ObstacleCube, 10, 8).update();
+	},
+	() => {
+		CubeCreator.create(WinningCube, 4, 4).update();
+		CubeCreator.create(WinningCube, 10, 2).update();
+		CubeCreator.create(ObstacleCube, 6, 4).update();
+		CubeCreator.create(ObstacleCube, 12, 4).update();
+		CubeCreator.create(ObstacleCube, 7, 6).update();
+		CubeCreator.create(ObstacleCube, 11, 7).update();
+		CubeCreator.create(ObstacleCube, 14, 6).update();
+		CubeCreator.create(ObstacleCube, 13, 2).update();
+		CubeCreator.create(ObstacleCube, 4, 3).update();
+		CubeCreator.create(ObstacleCube, 5, 8).update();
 	},
 	() => {
 		Scenes.winningScene();
