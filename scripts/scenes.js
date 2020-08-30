@@ -106,6 +106,17 @@ const scenes = [
 		UserInterface.displayText( {x: 5, y: 1, size: '20px', content: 'Try using the blue portal to reach the yellow cube!'} );
 	},
 	() => {
+		CubeCreator.create(WinningCube, 9, 8).update();
+		CubeCreator.create(PortalCube, 9, 2, 13, 8, 'blue').update();
+		CubeCreator.create(ObstacleCube, 9, 7).update();
+		CubeCreator.create(PortalCube, 13, 8, 9, 2, 'purple').update();
+		CubeCreator.create(ObstacleCube, 13, 4).update();
+		CubeCreator.create(ObstacleCube, 6, 5).update();
+		CubeCreator.create(ObstacleCube, 7, 0).update();
+		CubeCreator.create(ObstacleCube, 11, 1).update();
+		CubeCreator.create(ObstacleCube, 10, 3).update();
+	},
+	() => {
 		Scenes.winningScene();
 	}
 ]
