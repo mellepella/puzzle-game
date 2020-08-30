@@ -34,7 +34,7 @@ class PortalCube extends Cube {
                 break;
 
             case 'right':
-                if(playerFutureX < PLAYER_CUBE.x && playerFutureX <= this.x) {
+                if(playerFutureX < PLAYER_CUBE.x && playerFutureX >= this.x) {
                         PLAYER_CUBE.x = this.tpX * UNIT_SIZE;
                         PLAYER_CUBE.y = this.tpY * UNIT_SIZE;
                 }
