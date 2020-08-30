@@ -8,35 +8,35 @@ class PortalCube extends Cube {
     
     onCollision(collisionSide) {
 
-        let playerFutureY = playerCube.y + playerCube.velocityY;
-        let playerFutureX = playerCube.x + playerCube.velocityX;
+        let playerFutureY = PLAYER_CUBE.y + PLAYER_CUBE.velocityY;
+        let playerFutureX = PLAYER_CUBE.x + PLAYER_CUBE.velocityX;
 
         switch(collisionSide) {
             case 'bottom':
-                if(playerFutureY < playerCube.y) {
-                    playerCube.x = this.tpX * unitSize;
-                    playerCube.y = this.tpY * unitSize;
+                if(playerFutureY < PLAYER_CUBE.y) {
+                    PLAYER_CUBE.x = this.tpX * UNIT_SIZE;
+                    PLAYER_CUBE.y = this.tpY * UNIT_SIZE;
                 }
                 break;
             
             case 'top':
-                if(playerFutureY > playerCube.y) {
-                    playerCube.x = this.tpX * unitSize;
-                    playerCube.y = this.tpY * unitSize;
+                if(playerFutureY > PLAYER_CUBE.y) {
+                    PLAYER_CUBE.x = this.tpX * UNIT_SIZE;
+                    PLAYER_CUBE.y = this.tpY * UNIT_SIZE;
                 }
                 break;
             
             case 'left':
-                if(playerFutureX > playerCube.x && playerFutureX <= this.x) {
-                        playerCube.x = this.tpX * unitSize;
-                        playerCube.y = this.tpY * unitSize;
+                if(playerFutureX > PLAYER_CUBE.x && playerFutureX <= this.x) {
+                        PLAYER_CUBE.x = this.tpX * UNIT_SIZE;
+                        PLAYER_CUBE.y = this.tpY * UNIT_SIZE;
                 }
                 break;
 
             case 'right':
-                if(playerFutureX < playerCube.x && playerFutureX <= this.x) {
-                        playerCube.x = this.tpX * unitSize;
-                        playerCube.y = this.tpY * unitSize;
+                if(playerFutureX < PLAYER_CUBE.x && playerFutureX >= this.x) {
+                        PLAYER_CUBE.x = this.tpX * UNIT_SIZE;
+                        PLAYER_CUBE.y = this.tpY * UNIT_SIZE;
                 }
                 break;
         }

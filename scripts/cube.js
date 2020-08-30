@@ -3,7 +3,7 @@ class Cube {
         this.x = x;
 		this.y = y;
 	
-        this.size = unitSize;
+        this.size = UNIT_SIZE;
         
         this.color = color;
 	}
@@ -22,35 +22,35 @@ class Cube {
 
 		// Detect collision from left
 
-		if(this.y === playerCube.y 
-		&& this.x + this.size > playerCube.x
-		&& this.x < playerCube.x + playerCube.size
-		&& playerCube.x < playerCube.x + playerCube.velocityX) {
+		if(this.y === PLAYER_CUBE.y 
+		&& this.x + this.size > PLAYER_CUBE.x
+		&& this.x < PLAYER_CUBE.x + PLAYER_CUBE.size
+		&& PLAYER_CUBE.x < PLAYER_CUBE.x + PLAYER_CUBE.velocityX) {
 			this.onCollision('left');
 		}
 		
 		// Detect collision from right
 
-		else if(this.y === playerCube.y 
-			&& this.x + this.size > playerCube.x
-			&& this.x < playerCube.x + playerCube.size
-			&& playerCube.x > playerCube.x + playerCube.velocityX) {
+		else if(this.y === PLAYER_CUBE.y 
+			&& this.x + this.size > PLAYER_CUBE.x
+			&& this.x < PLAYER_CUBE.x + PLAYER_CUBE.size
+			&& PLAYER_CUBE.x > PLAYER_CUBE.x + PLAYER_CUBE.velocityX) {
 			this.onCollision('right');
 		} 
 
 		// Detect upper collision
 
-		else if(this.x === playerCube.x 
-		&& this.y < playerCube.y + playerCube.size 
-		&& this.y + this.size > playerCube.y + playerCube.size) {
+		else if(this.x === PLAYER_CUBE.x 
+		&& this.y < PLAYER_CUBE.y + PLAYER_CUBE.size 
+		&& this.y + this.size > PLAYER_CUBE.y + PLAYER_CUBE.size) {
             this.onCollision('top');
 		}
 
 		// Detect collision from the bottom
 	
-		else if(this.x === playerCube.x 
-		&& this.y < playerCube.y 
-		&& this.y + this.size > playerCube.y) {
+		else if(this.x === PLAYER_CUBE.x 
+		&& this.y < PLAYER_CUBE.y 
+		&& this.y + this.size > PLAYER_CUBE.y) {
 			this.onCollision('bottom');
 		}
 	}

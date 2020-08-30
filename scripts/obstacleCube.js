@@ -5,13 +5,13 @@ class ObstacleCube extends Cube {
 
 	onCollision(collisionSide) {
 		if(collisionSide === 'bottom') {
-			playerCube.stop(playerCube.x, playerCube.y - playerCube.velocityY);
+			PLAYER_CUBE.stop(PLAYER_CUBE.x, PLAYER_CUBE.y - PLAYER_CUBE.velocityY);
 		}
 		else if(collisionSide === 'top') {
-			playerCube.stop(playerCube.x, playerCube.y - playerCube.velocityY);
+			PLAYER_CUBE.stop(PLAYER_CUBE.x, PLAYER_CUBE.y - PLAYER_CUBE.velocityY);
 		}
 		else if(collisionSide === 'left' || collisionSide === 'right') {
-			playerCube.stop(playerCube.x - playerCube.velocityX, playerCube.y);
+			PLAYER_CUBE.stop(PLAYER_CUBE.x - PLAYER_CUBE.velocityX, PLAYER_CUBE.y);
 		}
 	}
 	

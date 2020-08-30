@@ -1,8 +1,8 @@
 // Time-trackers
 
-const startTime = new Date();
+const START_TIME = new Date();
 
-const oneSecond = 1000;
+const ONE_SECOND = 1000;
 
 // Variables used all around
 
@@ -14,36 +14,36 @@ const KEY_CODES = {
 	'r': 114
 }
 
-const canvasWidth = 1000;
-const canvasHeight = 500;
+const CANVAS_WIDTH = 1000;
+const CANVAS_HEIGHT = 500;
 
-let currentScene = 1;
+let currentScene = scenes.length - 1;
 
-const font = "Arial";
+const FONT = "Arial";
 
 let gameIsRunning = true;
 
-const updateTime = 5;
+const UPDATE_TIME = 5;
 
-const unitSize = 50;
+const UNIT_SIZE = 50;
 
-const playerVelocity = unitSize/10;
+const PLAYER_VELOCITY = UNIT_SIZE/10;
 
-let startingX = unitSize * 9;
-let startingY = unitSize * 4;
+let startingX = UNIT_SIZE * 9;
+let startingY = UNIT_SIZE * 4;
 
 
 // Cubes
 
-const playerCube = new PlayerCube(startingX, startingY);
+const PLAYER_CUBE = new PlayerCube(startingX, startingY);
 
 class Game {
 	static calculateTime() {
 		const endTime = new Date();
 
-		const elapsedMilliseconds = endTime.getTime() - startTime.getTime();
+		const elapsedMilliseconds = endTime.getTime() - START_TIME.getTime();
 
-		let elapsedSeconds = Math.round(elapsedMilliseconds/oneSecond);
+		let elapsedSeconds = Math.round(elapsedMilliseconds/ONE_SECOND);
 
 		const elapsedMinutes = Math.floor(elapsedSeconds/60);
 
@@ -60,19 +60,19 @@ class Game {
 	static detectKeyPress(event) {
 		switch(event.charCode) {
 			case KEY_CODES.w:
-				playerCube.go('up');
+				PLAYER_CUBE.go('up');
 				break;
 			
 			case KEY_CODES.s:
-				playerCube.go('down');
+				PLAYER_CUBE.go('down');
 				break;
 
 			case KEY_CODES.a:
-				playerCube.go('left');
+				PLAYER_CUBE.go('left');
 				break;
 			
 			case KEY_CODES.d:
-				playerCube.go('right');
+				PLAYER_CUBE.go('right');
 				break;
 			
 			case KEY_CODES.r:
@@ -82,14 +82,14 @@ class Game {
 	}
 
 	static restart() {
-		playerCube.stop(startingX, startingY);
-		playerCube.isColliding = false;
+		PLAYER_CUBE.stop(startingX, startingY);
+		PLAYER_CUBE.isColliding = false;
 	}
 
 	static update() {
 		if(gameIsRunning) {
 			Game.clearCanvas();
-			playerCube.update();
+			PLAYER_CUBE.update();
 			UserInterface.displayText( {x: 17.2, y: 2, size: "20px", content: `${this.calculateTime()[1]} : ${this.calculateTime()[0]}`} );
 			UserInterface.displayText( { x: 17, y: 1, size: "20px", content: `Level ${currentScene}` });
 		}
@@ -103,4 +103,4 @@ class Game {
 
 setInterval(function() {
 	Game.update();
-}, updateTime);
+}, UPDATE_TIME);
