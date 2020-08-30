@@ -20,25 +20,21 @@ class PortalCube extends Cube {
                 break;
             
             case 'top':
-                if(playerFutureY > playerCube.y - playerCube.velocityY) {
+                if(playerFutureY > playerCube.y) {
                     playerCube.x = this.tpX * unitSize;
                     playerCube.y = this.tpY * unitSize;
                 }
                 break;
             
             case 'left':
-                if(playerCube.x + playerCube.size < this.x + this.size  
-                    && playerCube.x + playerCube.size + playerCube.velocityX > this.size
-                    && playerCube.velocityX === playerVelocity) {
+                if(playerFutureX > playerCube.x && playerFutureX <= this.x) {
                         playerCube.x = this.tpX * unitSize;
                         playerCube.y = this.tpY * unitSize;
                 }
                 break;
 
             case 'right':
-                if(playerFutureX < this.x + this.size
-                    && playerCube.x > this.x 
-                    && playerCube.velocityX === -playerVelocity) {
+                if(playerFutureX < playerCube.x && playerFutureX <= this.x) {
                         playerCube.x = this.tpX * unitSize;
                         playerCube.y = this.tpY * unitSize;
                 }
