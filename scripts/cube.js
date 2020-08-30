@@ -27,7 +27,6 @@ class Cube {
 		&& playerCube.x + playerCube.size < this.x + this.size
 		&& playerCube.x + playerCube.size - playerCube.velocityX <= this.x + this.size) {
 			this.onCollision('left');
-			console.log('Left');
 		}
 		
 		// Detect collision from right
@@ -37,7 +36,6 @@ class Cube {
 			&& playerCube.x <= this.x + this.size
 			&& playerCube.x + playerCube.size - playerCube.velocityX >= this.x + this.size) {
 			this.onCollision('right');
-			console.log('Right');
 		} 
 
 		// Detect upper collision
