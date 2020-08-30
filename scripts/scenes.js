@@ -42,8 +42,8 @@ const scenes = [
 		CubeCreator.create(ObstacleCube, 11, 7).update();
 	},
 	() => {
-		UserInterface.displayText( {x: 0.5, y: 1, size: '20px', content: 'Try to finish the levels as fast as you can!'} );
-		UserInterface.displayText( {x: 0.5, y: 1.5, size: '12.5px', content: 'Your time will be displayed in the right upper corner. Good luck!'} );
+		UserInterface.displayText( {x: 0.5, y: 2, size: '20px', content: 'Try to finish the levels as fast as you can!'} );
+		UserInterface.displayText( {x: 0.5, y: 2.5, size: '12.5px', content: 'Your time will be displayed in the right upper corner. Good luck!'} );
 		CubeCreator.create(WinningCube, 9, 1).update();
 		CubeCreator.create(ObstacleCube, 9, 2).update();
 		CubeCreator.create(ObstacleCube, 9, 6).update();
