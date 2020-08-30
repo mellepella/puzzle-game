@@ -25,7 +25,7 @@ class PlayerCube extends Cube {
 		this.x += this.velocityX;
 		this.y += this.velocityY;
 		
-		if(this.x >= canvasWidth - this.size || this.x <= 0 || this.y >= canvasHeight - this.size || this.y <= 0) {
+		if(this.x >= CANVAS_WIDTH - this.size || this.x <= 0 || this.y >= CANVAS_HEIGHT - this.size || this.y <= 0) {
 			Game.restart();
 			this.isColliding = false;
 		}
@@ -50,25 +50,25 @@ class PlayerCube extends Cube {
 		else {
 			switch(direction) {
 				case 'up':
-					this.velocityY = -playerVelocity;
+					this.velocityY = -PLAYER_VELOCITY;
 					this.isMoving = true;
 					this.moveDirection = 'up';
 					break;
 
 				case 'down':
-					this.velocityY = playerVelocity;
+					this.velocityY = PLAYER_VELOCITY;
 					this.isMoving = true;
 					this.moveDirection = 'down';
 					break;
 				
 				case 'left':
-					this.velocityX = -playerVelocity;
+					this.velocityX = -PLAYER_VELOCITY;
 					this.isMoving = true;
 					this.moveDirection = 'left';
 					break;
 					
 				case 'right':
-					this.velocityX = playerVelocity;
+					this.velocityX = PLAYER_VELOCITY;
 					this.isMoving = true;
 					this.moveDirection = 'right';
 					break;

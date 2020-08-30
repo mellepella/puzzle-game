@@ -1,7 +1,7 @@
 class UserInterface {
     static displayText(assets) {
 		ctx.fillStyle = 'black';
-		ctx.font = `${assets.size} ${font}`;
-		ctx.fillText(assets.content, assets.x * unitSize, assets.y * unitSize);
+		ctx.font = `${assets.size} ${FONT}`;
+		ctx.fillText(assets.content, assets.x * UNIT_SIZE, assets.y * UNIT_SIZE);
 	}
 }
