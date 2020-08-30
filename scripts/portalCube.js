@@ -43,6 +43,6 @@ class PortalCube extends Cube {
                         playerCube.y = this.tpY * unitSize;
                 }
                 break;
-            }
+        }
     }
 }
