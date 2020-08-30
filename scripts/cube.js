@@ -21,11 +21,32 @@ class Cube {
 	detectCollision() {
 		
 		// Detect collision from right and left
-		
+		/*
 		if(this.x < playerCube.x + playerCube.size 
 		&& this.x + this.size > playerCube.x 
 		&& this.y == playerCube.y) {
-            this.onCollision('left or right');
+			if(playerCube.x - playerCube.velocityX > playerCube.x) {
+				this.onCollision('right');
+				console.log('Right');
+			}
+			else if(playerCube.x + playerCube.size - playerCube.velocityX < playerCube.x + playerCube.size) {
+				this.onCollision('left');
+				console.log('Left');
+			}
+		} */
+
+		if(this.y == playerCube.y 
+		&& playerCube.x + playerCube.size > this.x 
+		&& playerCube.x < this.x + this.size
+		&& playerCube.x + playerCube.size - playerCube.velocityX < this.x + this.size) {
+			this.onCollision('left');
+		}
+		
+		else if(this.y == playerCube.y 
+			&& playerCube.x + playerCube.size > this.x 
+			&& playerCube.x < this.x + this.size
+			&& playerCube.x + playerCube.size - playerCube.velocityX > this.x + this.size) {
+			this.onCollision('right');
 		}
 
 		// Detect upper collision
