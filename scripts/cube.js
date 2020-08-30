@@ -19,21 +19,8 @@ class Cube {
 	}
 
 	detectCollision() {
-		
-		// Detect collision from right and left
-		/*
-		if(this.x < playerCube.x + playerCube.size 
-		&& this.x + this.size > playerCube.x 
-		&& this.y == playerCube.y) {
-			if(playerCube.x - playerCube.velocityX > playerCube.x) {
-				this.onCollision('right');
-				console.log('Right');
-			}
-			else if(playerCube.x + playerCube.size - playerCube.velocityX < playerCube.x + playerCube.size) {
-				this.onCollision('left');
-				console.log('Left');
-			}
-		} */
+
+		// Detect collision from left
 
 		if(this.y == playerCube.y 
 		&& playerCube.x + playerCube.size > this.x 
@@ -42,6 +29,8 @@ class Cube {
 			this.onCollision('left');
 		}
 		
+		// Detect collision from right
+
 		else if(this.y == playerCube.y 
 			&& playerCube.x + playerCube.size > this.x 
 			&& playerCube.x < this.x + this.size
