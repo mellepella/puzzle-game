@@ -19,18 +19,28 @@ class Cube {
 	}
 
 	detectCollision() {
-		
-		// Detect collision from right and left
-		
-		if(this.x < playerCube.x + playerCube.size 
-		&& this.x + this.size > playerCube.x 
-		&& this.y == playerCube.y) {
-            this.onCollision('left or right');
+
+		// Detect collision from left
+
+		if(this.y === playerCube.y 
+		&& this.x + this.size > playerCube.x
+		&& this.x < playerCube.x + playerCube.size
+		&& playerCube.x < playerCube.x + playerCube.velocityX) {
+			this.onCollision('left');
 		}
+		
+		// Detect collision from right
+
+		else if(this.y === playerCube.y 
+			&& this.x + this.size > playerCube.x
+			&& this.x < playerCube.x + playerCube.size
+			&& playerCube.x > playerCube.x + playerCube.velocityX) {
+			this.onCollision('right');
+		} 
 
 		// Detect upper collision
 
-		else if(this.x == playerCube.x 
+		else if(this.x === playerCube.x 
 		&& this.y < playerCube.y + playerCube.size 
 		&& this.y + this.size > playerCube.y + playerCube.size) {
             this.onCollision('top');
@@ -38,7 +48,7 @@ class Cube {
 
 		// Detect collision from the bottom
 	
-		else if(this.x == playerCube.x 
+		else if(this.x === playerCube.x 
 		&& this.y < playerCube.y 
 		&& this.y + this.size > playerCube.y) {
 			this.onCollision('bottom');

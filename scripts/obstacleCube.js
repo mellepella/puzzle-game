@@ -10,7 +10,7 @@ class ObstacleCube extends Cube {
 		else if(collisionSide === 'top') {
 			playerCube.stop(playerCube.x, playerCube.y - playerCube.velocityY);
 		}
-		else if(collisionSide === 'left or right') {
+		else if(collisionSide === 'left' || collisionSide === 'right') {
 			playerCube.stop(playerCube.x - playerCube.velocityX, playerCube.y);
 		}
 	}

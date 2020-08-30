@@ -99,6 +99,13 @@ const scenes = [
 		CubeCreator.create(ObstacleCube, 5, 8).update();
 	},
 	() => {
+		CubeCreator.create(WinningCube, 9, 6).update();
+		CubeCreator.create(PortalCube, 13, 4, 4, 6, 'blue').update();
+		CubeCreator.create(PortalCube, 4, 6, 13, 4, 'green').update();
+		CubeCreator.create(ObstacleCube, 9, 5).update();
+		UserInterface.displayText( {x: 5, y: 1, size: '20px', content: 'Try using the blue portal to reach the yellow cube!'} );
+	},
+	() => {
 		Scenes.winningScene();
 	}
 ]

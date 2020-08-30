@@ -34,7 +34,7 @@ class PlayerCube extends Cube {
 	stop(x, y) {
 		this.x = x;
 		this.y = y;
-
+		
 		this.velocityX = 0;
 		this.velocityY = 0;
 				
