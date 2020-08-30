@@ -17,7 +17,7 @@ const KEY_CODES = {
 const canvasWidth = 1000;
 const canvasHeight = 500;
 
-let currentScene = scenes.length - 1;
+let currentScene = 1;
 
 const font = "Arial";
 

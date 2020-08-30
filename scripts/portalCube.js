@@ -1,7 +1,7 @@
 
 class PortalCube extends Cube {
     constructor(x, y, color, tpX, tpY) {
-        super(x, y, 'blue', tpX, tpY);
+        super(x, y, color, tpX, tpY);
         this.tpX = tpX;
         this.tpY = tpY;
     }
