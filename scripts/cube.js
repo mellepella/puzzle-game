@@ -23,18 +23,18 @@ class Cube {
 		// Detect collision from left
 
 		if(this.y === playerCube.y 
-		&& playerCube.x + playerCube.size > this.x 
-		&& playerCube.x + playerCube.size < this.x + this.size
-		&& playerCube.x + playerCube.size - playerCube.velocityX <= this.x + this.size) {
+		&& this.x + this.size > playerCube.x
+		&& this.x < playerCube.x + playerCube.size
+		&& playerCube.x < playerCube.x + playerCube.velocityX) {
 			this.onCollision('left');
 		}
 		
 		// Detect collision from right
 
 		else if(this.y === playerCube.y 
-			&& playerCube.x + playerCube.size >= this.x 
-			&& playerCube.x <= this.x + this.size
-			&& playerCube.x + playerCube.size - playerCube.velocityX >= this.x + this.size) {
+			&& this.x + this.size > playerCube.x
+			&& this.x < playerCube.x + playerCube.size
+			&& playerCube.x > playerCube.x + playerCube.velocityX) {
 			this.onCollision('right');
 		} 
 
