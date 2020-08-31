@@ -42,8 +42,8 @@ const scenes = [
 		CubeCreator.create(ObstacleCube, 11, 7).update();
 	},
 	() => {
-		UserInterface.displayText( {x: 0.5, y: 1, size: '20px', content: 'Try to finish the levels as fast as you can!'} );
-		UserInterface.displayText( {x: 0.5, y: 1.5, size: '12.5px', content: 'Your time will be displayed in the right upper corner. Good luck!'} );
+		UserInterface.displayText( {x: 0.5, y: 2, size: '20px', content: 'Try to finish the levels as fast as you can!'} );
+		UserInterface.displayText( {x: 0.5, y: 2.5, size: '12.5px', content: 'Your time will be displayed in the right upper corner. Good luck!'} );
 		CubeCreator.create(WinningCube, 9, 1).update();
 		CubeCreator.create(ObstacleCube, 9, 2).update();
 		CubeCreator.create(ObstacleCube, 9, 6).update();
@@ -109,12 +109,25 @@ const scenes = [
 		CubeCreator.create(WinningCube, 9, 8).update();
 		CubeCreator.create(PortalCube, 9, 2, 13, 8, 'blue').update();
 		CubeCreator.create(ObstacleCube, 9, 7).update();
-		CubeCreator.create(PortalCube, 13, 8, 9, 2, 'purple').update();
+		CubeCreator.create(PortalCube, 13, 8, 9, 2, 'green').update();
 		CubeCreator.create(ObstacleCube, 13, 4).update();
 		CubeCreator.create(ObstacleCube, 6, 5).update();
 		CubeCreator.create(ObstacleCube, 7, 0).update();
 		CubeCreator.create(ObstacleCube, 11, 1).update();
 		CubeCreator.create(ObstacleCube, 10, 3).update();
+	},
+	() => {
+		CubeCreator.create(ObstacleCube, 6, 3).update();
+		CubeCreator.create(ObstacleCube, 12, 4).update();
+		CubeCreator.create(PortalCube, 11, 6, 12, 2, 'blue').update();
+		CubeCreator.create(PortalCube, 12, 2, 11, 6, 'green').update();
+		CubeCreator.create(ObstacleCube, 7, 7).update();
+		CubeCreator.create(ObstacleCube, 5, 2).update();
+		CubeCreator.create(PortalCube, 6, 7, 6, 0, 'red').update();
+		CubeCreator.create(PortalCube, 6, 0, 6, 7, 'purple').update();
+		CubeCreator.create(ObstacleCube, 5, 6).update();
+		CubeCreator.create(WinningCube, 10, 2).update();
+		
 	},
 	() => {
 		Scenes.winningScene();
