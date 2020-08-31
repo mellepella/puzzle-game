@@ -119,7 +119,6 @@ const scenes = [
 	() => {
 		CubeCreator.create(ObstacleCube, 6, 3).update();
 		CubeCreator.create(ObstacleCube, 12, 4).update();
-		CubeCreator.create(ObstacleCube, 9, 1).update();
 		CubeCreator.create(PortalCube, 11, 6, 12, 2, 'blue').update();
 		CubeCreator.create(PortalCube, 12, 2, 11, 6, 'green').update();
 		CubeCreator.create(ObstacleCube, 7, 7).update();
