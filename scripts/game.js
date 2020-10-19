@@ -17,9 +17,19 @@ const KEY_CODES = {
 const CANVAS_WIDTH = 1000;
 const CANVAS_HEIGHT = 500;
 
-let currentScene = 1;
+let debug = false;
+
+let currentScene;
+
+if(debug) {
+	currentScene = scenes.length - 1;
+}
+else {
+	currentScene = 1;
+}
 
 const FONT = "Arial";
+
 
 let gameIsRunning = true;
 
