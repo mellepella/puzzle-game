@@ -30,7 +30,6 @@ else {
 
 const FONT = "Arial";
 
-
 let gameIsRunning = true;
 
 const UPDATE_TIME = 5;
