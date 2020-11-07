@@ -6,12 +6,12 @@ const ONE_SECOND = 1000;
 
 // Variables used all around
 
-const KEY_CODES = {
-	'w': 119,
-	'a': 97,
-	's': 115,
-	'd': 100,
-	'r': 114
+const KEYS = {
+	'up': 'w',
+	'left': 'a',
+	'down': 's',
+	'right': 'd',
+	'restart': 'r'
 }
 
 const CANVAS_WIDTH = 1000;
@@ -68,27 +68,12 @@ class Game {
 	}
 
 	static detectKeyPress(event) {
-		switch(event.charCode) {
-			case KEY_CODES.w:
-				PLAYER_CUBE.go('up');
-				break;
-			
-			case KEY_CODES.s:
-				PLAYER_CUBE.go('down');
-				break;
-
-			case KEY_CODES.a:
-				PLAYER_CUBE.go('left');
-				break;
-			
-			case KEY_CODES.d:
-				PLAYER_CUBE.go('right');
-				break;
-			
-			case KEY_CODES.r:
-				this.restart();
-				break;
+		const keypress = event.key;
+		
+		if(keypress === KEYS.restart) {
+			Game.restart();
 		}
+		PLAYER_CUBE.go(keypress)
 	}
 
 	static restart() {

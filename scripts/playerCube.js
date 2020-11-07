@@ -43,31 +43,31 @@ class PlayerCube extends Cube {
 		this.isMoving = false;
 	}
 
-	go(direction) {
+	go(key) {
 		if(this.isMoving) {
 			return;
 		}
 		else {
-			switch(direction) {
-				case 'up':
+			switch(key) {
+				case KEYS.up:
 					this.velocityY = -PLAYER_VELOCITY;
 					this.isMoving = true;
 					this.moveDirection = 'up';
 					break;
 
-				case 'down':
+				case KEYS.down:
 					this.velocityY = PLAYER_VELOCITY;
 					this.isMoving = true;
 					this.moveDirection = 'down';
 					break;
 				
-				case 'left':
+				case KEYS.left:
 					this.velocityX = -PLAYER_VELOCITY;
 					this.isMoving = true;
 					this.moveDirection = 'left';
 					break;
 					
-				case 'right':
+				case KEYS.right:
 					this.velocityX = PLAYER_VELOCITY;
 					this.isMoving = true;
 					this.moveDirection = 'right';
