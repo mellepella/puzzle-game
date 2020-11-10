@@ -27,14 +27,14 @@ class Scenes {
 }
 
 const scenes = [
-  
+
   () => {
     CubeCreator.create(WinningCube, 6, 4).update();
     UserInterface.displayText({
       x: 5,
       y: 1,
       size: "20px",
-      content: "Get to the Diamond to proceed to the next level!",
+      content: "Get to the Coin to proceed to the next level!",
     });
     UserInterface.displayText({
       x: 6.5,
@@ -150,7 +150,7 @@ const scenes = [
       x: 5,
       y: 1,
       size: "20px",
-      content: "Try using the blue portal to reach the yellow cube!",
+      content: "Try using the blue portal to reach the Coin!",
     });
   },
   () => {
