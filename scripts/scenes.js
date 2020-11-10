@@ -130,6 +130,17 @@ const scenes = [
 		
 	},
 	() => {
+		CubeCreator.create(ObstacleCube, 4, 5).update();
+		CubeCreator.create(ObstacleCube, 9, 6).update();
+		CubeCreator.create(ObstacleCube, 9, 3).update();
+		CubeCreator.create(PortalCube, 9, 1, 5, 6, 'blue').update();
+		CubeCreator.create(PortalCube, 5, 6, 9, 1, 'green').update();
+		CubeCreator.create(PortalCube, 7, 1, 11, 2, 'red').update();
+		CubeCreator.create(PortalCube, 11, 2, 7, 1, 'purple').update();
+		CubeCreator.create(ObstacleCube, 5, 0).update();
+		CubeCreator.create(WinningCube, 8, 0).update();
+	},
+	() => {
 		Scenes.winningScene();
 	}
 ]
