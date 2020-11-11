@@ -23,7 +23,7 @@ const KEYS = {
 const CANVAS_WIDTH = 1000;
 const CANVAS_HEIGHT = 500;
 
-let debug = false;
+let debug = true;
 
 let currentScene;
 
@@ -33,7 +33,7 @@ if (debug) {
   currentScene = 1;
 }
 
-const FONT = "Arial";
+const FONT = "Verdana";
 
 let gameIsRunning = true;
 

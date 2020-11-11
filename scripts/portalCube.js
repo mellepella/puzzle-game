@@ -1,6 +1,6 @@
 class PortalCube extends Cube {
   constructor(x, y, texture, tpX, tpY) {
-    super(x, y, "portalCube", tpX, tpY);
+    super(x, y, texture, tpX, tpY);
     this.tpX = tpX;
     this.tpY = tpY;
   }
