@@ -66,8 +66,9 @@ class Game {
   }
 
   static clearCanvas() {
-    ctx.fillStyle = "#f0f0f0";
-    ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
+    const img = document.getElementById('background');
+
+    ctx.drawImage(img, 0, 0)
   }
 
   static detectKeyPress(event) {

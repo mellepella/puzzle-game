@@ -31,7 +31,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   display: block;
-  border: #363636 4px solid;
+  border: black 3px solid;
   border-radius: 2px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.6);
 }
