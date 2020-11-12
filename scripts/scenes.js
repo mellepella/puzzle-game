@@ -37,9 +37,9 @@ const scenes = [
       content: "Get to the Coin to proceed to the next level!",
     });
     UserInterface.displayText({
-      x: 6.5,
+      x: 5.8,
       y: 2,
-      size: "15px",
+      size: "18px",
       content: "(Use the W, A, S, D keys to move around)",
     });
   },
@@ -83,7 +83,7 @@ const scenes = [
     UserInterface.displayText({
       x: 0.5,
       y: 2.5,
-      size: "11.5px",
+      size: "12px",
       content:
         "Your time will be displayed in the right upper corner. Good luck!",
     });
