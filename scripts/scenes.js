@@ -83,7 +83,7 @@ const scenes = [
     UserInterface.displayText({
       x: 0.5,
       y: 2.5,
-      size: "12px",
+      size: "13px",
       content:
         "Your time will be displayed in the right upper corner. Good luck!",
     });
