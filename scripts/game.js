@@ -66,9 +66,9 @@ class Game {
   }
 
   static clearCanvas() {
-    const img = document.getElementById('background');
+    const img = document.getElementById("background");
 
-    ctx.drawImage(img, 0, 0)
+    ctx.drawImage(img, 0, 0);
   }
 
   static detectKeyPress(event) {
@@ -111,5 +111,6 @@ class Game {
 // Animate
 
 setInterval(function () {
+  UserInterface.playMusic("theme");
   Game.update();
 }, UPDATE_TIME);
