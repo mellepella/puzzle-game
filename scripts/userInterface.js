@@ -3,7 +3,7 @@ class UserInterface {
 		ctx.font = `${assets.size} ${FONT}`;
 
 		ctx.strokeStyle = 'black';
-		ctx.lineWidth = 3;
+		ctx.lineWidth = 4;
 
 		ctx.strokeText(assets.content, assets.x * UNIT_SIZE, assets.y * UNIT_SIZE);
 
