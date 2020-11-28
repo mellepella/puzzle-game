@@ -23,7 +23,7 @@ const KEYS = {
 const CANVAS_WIDTH = 1000;
 const CANVAS_HEIGHT = 500;
 
-let debug = false;
+let debug = true;
 
 let currentScene;
 
@@ -110,7 +110,11 @@ class Game {
 
 // Animate
 
-setInterval(function () {
-  UserInterface.playMusic("theme");
-  Game.update();
-}, UPDATE_TIME);
+AssetStore.loadTextures().then(() => {
+  PLAYER_CUBE.texture = textures.player;
+
+  setInterval(function () {
+    UserInterface.playMusic("theme");
+    Game.update();
+  }, UPDATE_TIME);
+});

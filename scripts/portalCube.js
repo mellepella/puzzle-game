@@ -3,6 +3,8 @@ class PortalCube extends Cube {
     super(x, y, texture, tpX, tpY);
     this.tpX = tpX;
     this.tpY = tpY;
+
+    this.texture = textures[`portal${texture}`];
   }
 
   onCollision(collisionSide) {

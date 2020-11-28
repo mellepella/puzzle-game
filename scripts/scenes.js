@@ -142,8 +142,8 @@ const scenes = [
   },
   () => {
     CubeCreator.create(WinningCube, 9, 6).update();
-    CubeCreator.create(PortalCube, 13, 4, 4, 6, "portalblue").update();
-    CubeCreator.create(PortalCube, 4, 6, 13, 4, "portalgreen").update();
+    CubeCreator.create(PortalCube, 13, 4, 4, 6, "Blue").update();
+    CubeCreator.create(PortalCube, 4, 6, 13, 4, "Green").update();
     CubeCreator.create(ObstacleCube, 9, 5).update();
     UserInterface.displayText({
       x: 5,
@@ -154,9 +154,9 @@ const scenes = [
   },
   () => {
     CubeCreator.create(WinningCube, 9, 8).update();
-    CubeCreator.create(PortalCube, 9, 2, 13, 8, "portalblue").update();
+    CubeCreator.create(PortalCube, 9, 2, 13, 8, "Blue").update();
     CubeCreator.create(ObstacleCube, 9, 7).update();
-    CubeCreator.create(PortalCube, 13, 8, 9, 2, "portalgreen").update();
+    CubeCreator.create(PortalCube, 13, 8, 9, 2, "Green").update();
     CubeCreator.create(ObstacleCube, 13, 4).update();
     CubeCreator.create(ObstacleCube, 6, 5).update();
     CubeCreator.create(ObstacleCube, 7, 0).update();
@@ -166,12 +166,12 @@ const scenes = [
   () => {
     CubeCreator.create(ObstacleCube, 6, 3).update();
     CubeCreator.create(ObstacleCube, 12, 4).update();
-    CubeCreator.create(PortalCube, 11, 6, 12, 2, "portalblue").update();
-    CubeCreator.create(PortalCube, 12, 2, 11, 6, "portalgreen").update();
+    CubeCreator.create(PortalCube, 11, 6, 12, 2, "Blue").update();
+    CubeCreator.create(PortalCube, 12, 2, 11, 6, "Green").update();
     CubeCreator.create(ObstacleCube, 7, 7).update();
     CubeCreator.create(ObstacleCube, 5, 2).update();
-    CubeCreator.create(PortalCube, 6, 7, 6, 0, "portalred").update();
-    CubeCreator.create(PortalCube, 6, 0, 6, 7, "portalpurple").update();
+    CubeCreator.create(PortalCube, 6, 7, 6, 0, "Red").update();
+    CubeCreator.create(PortalCube, 6, 0, 6, 7, "Purple").update();
     CubeCreator.create(ObstacleCube, 5, 6).update();
     CubeCreator.create(WinningCube, 10, 2).update();
   },

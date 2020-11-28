@@ -11,6 +11,7 @@ class UserInterface {
     ctx.fillText(assets.content, assets.x * UNIT_SIZE, assets.y * UNIT_SIZE);
     ctx.fillStyle = "#f5f5f5";
   }
+
   static playMusic(musicId) {
     const music = document.getElementById(musicId);
     music.play();
