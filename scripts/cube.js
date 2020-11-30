@@ -1,11 +1,11 @@
 class Cube {
-  constructor(x, y, texture) {
+  constructor(x, y, name) {
     this.x = x;
     this.y = y;
 
     this.size = UNIT_SIZE;
 
-    this.texture = texture;
+    this.texture = name;
   }
 
   update() {

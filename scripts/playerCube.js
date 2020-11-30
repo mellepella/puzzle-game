@@ -1,6 +1,6 @@
 class PlayerCube extends Cube {
   constructor(x, y, texture) {
-    super(x, y, textures.player);
+    super(x, y, AssetStore.getTexture("player"));
 
     this.startX = this.x;
     this.startY = this.y;
