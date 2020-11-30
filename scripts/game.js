@@ -23,7 +23,7 @@ const KEYS = {
 const CANVAS_WIDTH = 1000;
 const CANVAS_HEIGHT = 500;
 
-let debug = true;
+let debug = false;
 
 let currentScene;
 
