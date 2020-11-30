@@ -14,8 +14,7 @@ class Cube {
   }
 
   draw() {
-    const texture = document.getElementById(this.texture);
-    ctx.drawImage(texture, this.x, this.y);
+    ctx.drawImage(this.texture, this.x, this.y);
   }
 
   detectCollision() {

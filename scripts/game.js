@@ -23,7 +23,7 @@ const KEYS = {
 const CANVAS_WIDTH = 1000;
 const CANVAS_HEIGHT = 500;
 
-let debug = false;
+let debug = true;
 
 let currentScene;
 
@@ -33,7 +33,7 @@ if (debug) {
   currentScene = 1;
 }
 
-const FONT = "Arial";
+const FONT = "Verdana";
 
 let gameIsRunning = true;
 
@@ -66,8 +66,9 @@ class Game {
   }
 
   static clearCanvas() {
-    ctx.fillStyle = "#f0f0f0";
-    ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
+    const img = document.getElementById("background");
+
+    ctx.drawImage(img, 0, 0);
   }
 
   static detectKeyPress(event) {
@@ -109,6 +110,11 @@ class Game {
 
 // Animate
 
-setInterval(function () {
-  Game.update();
-}, UPDATE_TIME);
+AssetStore.loadTextures().then(() => {
+  PLAYER_CUBE.texture = textures.player;
+
+  setInterval(function () {
+    UserInterface.playMusic("theme");
+    Game.update();
+  }, UPDATE_TIME);
+});

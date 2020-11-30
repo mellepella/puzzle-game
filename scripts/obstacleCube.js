@@ -1,6 +1,6 @@
 class ObstacleCube extends Cube {
-  constructor(x, y, color) {
-    super(x, y, "obstacleCube");
+  constructor(x, y, texture) {
+    super(x, y, textures.obstacle);
   }
 
   onCollision(collisionSide) {
