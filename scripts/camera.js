@@ -5,7 +5,7 @@ function sleep(ms) {
 class Camera {
   static async shake() {
     const canvas = document.getElementById("canvas");
-    const counter = [1, 2, 3];
+    const counter = [1, 2];
     let percentage = 50;
 
     for (const number in counter) {
