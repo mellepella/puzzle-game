@@ -1,10 +1,10 @@
 class PortalCube extends Cube {
-  constructor(x, y, texture, tpX, tpY) {
-    super(x, y, texture, tpX, tpY);
+  constructor(x, y, name, tpX, tpY) {
+    super(x, y, name, tpX, tpY);
     this.tpX = tpX;
     this.tpY = tpY;
 
-    this.texture = textures[`portal${texture}`];
+    this.texture = AssetStore.getTexture(`portal${name}`);
   }
 
   onCollision(collisionSide) {

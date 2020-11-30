@@ -1,6 +1,6 @@
 class WinningCube extends Cube {
-  constructor(x, y, texture) {
-    super(x, y, textures.winningCube);
+  constructor(x, y, name) {
+    super(x, y, AssetStore.getTexture("winningCube"));
   }
 
   onCollision() {

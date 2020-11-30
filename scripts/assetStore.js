@@ -1,41 +1,60 @@
-const TEXTURE_SOURCES = {
-  player: "../assets/images/player.png",
-  winningCube: "../assets/images/winningCube.png",
-  portalBlue: "../assets/images/portalBlue.png",
-  portalPurple: "../assets/images/portalPurple.png",
-  portalGreen: "../assets/images/portalGreen.png",
-  portalRed: "../assets/images/portalRed.png",
-  obstacle: "../assets/images/obstacle.png",
-};
-
-let textures = {
-  player: "",
-  winningCube: "",
-  portalBlue: "",
-  portalPurple: "",
-  portalGreen: "",
-  portalRed: "",
-  obstacle: "",
+const TEXTURES = {
+  background: {
+    texture: undefined,
+    source: "../assets/images/background.png",
+  },
+  player: {
+    texture: undefined,
+    source: "../assets/images/player.png",
+  },
+  winningCube: {
+    texture: undefined,
+    source: "../assets/images/winningCube.png",
+  },
+  portalBlue: {
+    texture: undefined,
+    source: "../assets/images/portalBlue.png",
+  },
+  portalPurple: {
+    texture: undefined,
+    source: "../assets/images/portalPurple.png",
+  },
+  portalGreen: {
+    texture: undefined,
+    source: "../assets/images/portalGreen.png",
+  },
+  portalRed: {
+    texture: undefined,
+    source: "../assets/images/portalRed.png",
+  },
+  obstacle: {
+    texture: undefined,
+    source: "../assets/images/obstacle.png",
+  },
 };
 
 class AssetStore {
+  static getTexture(name) {
+    return TEXTURES[name].texture;
+  }
+
   static async loadTextures() {
-    for (let texture in textures) {
-      await this.loadTexture(texture);
+    for (let name in TEXTURES) {
+      await this.loadTexture(name);
     }
   }
 
-  static async loadTexture(texture) {
-    textures[texture] = new Image();
+  static async loadTexture(name) {
+    TEXTURES[name].texture = new Image();
 
-    if (textures[texture].complete) {
-      textures[texture].src = TEXTURE_SOURCES[texture];
+    if (TEXTURES[name].texture.complete) {
+      TEXTURES[name].texture.src = TEXTURES[name].source;
       return new Promise((resolve) => {
         resolve("resolved");
       });
     } else {
       texture.onload = function () {
-        textures[texture].src = TEXTURE_SOURCES[texture];
+        TEXTURES[name].texture.src = TEXTURES[name].source;
         return new Promise((resolve) => {
           resolve("resolved");
         });
