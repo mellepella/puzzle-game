@@ -6,12 +6,6 @@ const ONE_SECOND = 1000;
 
 // Variables used all around
 
-let TEXTURES = {
-  playerCube: "",
-  obstacleCube: "",
-  winningCube: "",
-};
-
 const KEYS = {
   up: "w",
   left: "a",
@@ -66,9 +60,7 @@ class Game {
   }
 
   static clearCanvas() {
-    const img = document.getElementById("background");
-
-    ctx.drawImage(img, 0, 0);
+    ctx.drawImage(AssetStore.getTexture("background"), 0, 0);
   }
 
   static detectKeyPress(event) {
@@ -111,7 +103,7 @@ class Game {
 // Animate
 
 AssetStore.loadTextures().then(() => {
-  PLAYER_CUBE.texture = textures.player;
+  PLAYER_CUBE.texture = AssetStore.getTexture("player");
 
   setInterval(function () {
     UserInterface.playMusic("theme");
