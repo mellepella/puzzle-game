@@ -1,33 +1,33 @@
 class Camera {
-  static async shake(framesPerSecond) {
+  static async shake(sleepDelay) {
     const canvas = document.getElementById("canvas");
 
     const aggression = 1.5;
-    const frameDuration = framesPerSecond;
-    const counter = [1, 2, 3, 4, 5];
+    const sleepDuration = sleepDelay;
     const distance = 0.12 * aggression;
+    const numberOfFrames = 4;
 
     let percentage = 50;
 
-    for (const number in counter) {
+    for (let i = 0; i < numberOfFrames; i++) {
       percentage += distance;
       canvas.style.marginLeft = `${percentage}%`;
-      await sleep(frameDuration);
+      await sleep(sleepDuration);
     }
-    for (const number in counter) {
+    for (let i = 0; i < numberOfFrames; i++) {
       percentage -= distance;
       canvas.style.marginLeft = `${percentage}%`;
-      await sleep(frameDuration);
+      await sleep(sleepDuration);
     }
-    for (const number in counter) {
+    for (let i = 0; i < numberOfFrames; i++) {
       percentage -= distance;
       canvas.style.marginLeft = `${percentage}%`;
-      await sleep(frameDuration);
+      await sleep(sleepDuration);
     }
-    for (const number in counter) {
+    for (let i = 0; i < numberOfFrames; i++) {
       percentage += distance;
       canvas.style.marginLeft = `${percentage}%`;
-      await sleep(frameDuration);
+      await sleep(sleepDuration);
     }
   }
 }

@@ -30,7 +30,7 @@ class PlayerCube extends Cube {
       this.y >= CANVAS_HEIGHT - this.size ||
       this.y <= 0
     ) {
-      Camera.shake(4);
+      Camera.shake(5);
       Game.restart();
       this.isColliding = false;
     }
