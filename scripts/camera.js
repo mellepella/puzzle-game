@@ -18,13 +18,13 @@ class Camera {
       canvas.style.marginLeft = `${percentage}%`;
       await sleep(sleepDuration);
     }
-    for (let i = 0; i < numberOfFrames * 2; i++) {
-      percentage -= distance/2;
+    for (let i = 0; i < numberOfFrames * 2.5; i++) {
+      percentage -= distance/2.5;
       canvas.style.marginLeft = `${percentage}%`;
       await sleep(sleepDuration);
     }
-    for (let i = 0; i < numberOfFrames * 2; i++) {
-      percentage += distance/2;
+    for (let i = 0; i < numberOfFrames * 2.5; i++) {
+      percentage += distance/2.5;
       canvas.style.marginLeft = `${percentage}%`;
       await sleep(sleepDuration);
     }
