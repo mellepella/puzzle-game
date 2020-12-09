@@ -74,7 +74,6 @@ class Game {
 
   static restart() {
     PLAYER_CUBE.stop(startingX, startingY);
-    PLAYER_CUBE.isColliding = false;
   }
 
   static update() {
