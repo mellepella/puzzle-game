@@ -8,10 +8,10 @@ function debugListener() {
   });
 
   canvas.addEventListener("click", function (event) {
-    Sandbox.addObject(
-      sandboxObject,
-      Math.floor(mouseX / UNIT_SIZE),
-      Math.floor(mouseY / UNIT_SIZE)
-    );
+    Sandbox.addObject({
+      type: sandboxObject, 
+      x: Math.floor(mouseX/UNIT_SIZE), 
+      y: Math.floor(mouseY/UNIT_SIZE)
+    });
   });
 }

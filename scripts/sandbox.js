@@ -1,5 +1,8 @@
 let sandboxLevel = "";
-let sandboxObject = ObstacleCube;
+let sandboxObject = PortalCube;
+let sanboxTpX = 3;
+let sandboxTpY = 3;
+let sandboxPortalColor = "Blue"
 
 class Sandbox {
   static update() {
@@ -10,8 +13,15 @@ class Sandbox {
       eval(sandboxLevel);
     });
   }
-  static addObject(type, x, y) {
-    sandboxLevel += `CubeCreator.create(${type.name}, ${x}, ${y}).update();`;
+  static addObject(props) {
+    sandboxLevel += `CubeCreator.create({ 
+      type: ${props.type.name}, 
+      x: ${props.x}, 
+      y: ${props.y},
+      color: "${sandboxPortalColor}",
+      tpX: ${sanboxTpX},
+      tpY: ${sandboxTpY}
+    }).update();`;
     this.pushLevel();
   }
   static drawMarking(x, y) {
