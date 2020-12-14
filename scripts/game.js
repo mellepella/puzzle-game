@@ -17,12 +17,14 @@ const KEYS = {
 const CANVAS_WIDTH = 1000;
 const CANVAS_HEIGHT = 500;
 
-let debug = false;
-
 let currentScene;
 
+let debug = true;
+
 if (debug) {
-  currentScene = scenes.length - 1;
+  scenes.push(() => {});
+  currentScene = scenes.length;
+  debugListener();
 } else {
   currentScene = 1;
 }
@@ -79,6 +81,10 @@ class Game {
   static update() {
     if (gameIsRunning) {
       Game.clearCanvas();
+
+      if (debug) {
+        Sandbox.update();
+      }
 
       PLAYER_CUBE.update();
       UserInterface.displayText({

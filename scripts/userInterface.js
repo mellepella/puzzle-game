@@ -1,3 +1,6 @@
+let mouseX = 0;
+let mouseY = 0;
+
 class UserInterface {
   static displayText(assets) {
     ctx.font = `${assets.size} ${FONT}`;
@@ -15,5 +18,14 @@ class UserInterface {
   static playMusic(musicId) {
     const music = document.getElementById(musicId);
     music.play();
+  }
+
+  static getCursorPosition(event) {
+    var cRect = canvas.getBoundingClientRect();
+    var canvasX = Math.round(event.clientX - cRect.left);
+    var canvasY = Math.round(event.clientY - cRect.top);
+
+    mouseX = canvasX;
+    mouseY = canvasY;
   }
 }
