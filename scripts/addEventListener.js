@@ -4,7 +4,7 @@ document.onkeypress = function (event) {
 
 function debugListener() {
   canvas.addEventListener("mousemove", function (event) {
-    UserInterface.getCursorPosition(event);
+    UserInterface.setCursorPosition(event);
   });
 
   canvas.addEventListener("click", function (event) {

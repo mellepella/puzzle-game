@@ -13,6 +13,7 @@ class Sandbox {
       eval(sandboxLevel);
     });
   }
+
   static addObject(props) {
     sandboxLevel += `CubeCreator.create({ 
       type: ${props.type.name}, 
@@ -24,6 +25,7 @@ class Sandbox {
     }).update();`;
     this.pushLevel();
   }
+
   static drawMarking(x, y) {
     ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
     ctx.fillRect(
