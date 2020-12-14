@@ -19,11 +19,12 @@ const CANVAS_HEIGHT = 500;
 
 let currentScene;
 
-let debug = true;
+let debug = false;
 
 if (debug) {
   scenes.push(() => {});
   currentScene = scenes.length;
+  Sandbox.createButtons();
   debugListener();
 } else {
   currentScene = 1;

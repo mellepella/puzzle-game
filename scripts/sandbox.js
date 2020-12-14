@@ -35,4 +35,10 @@ class Sandbox {
       UNIT_SIZE
     );
   }
+  
+  static createButtons() {
+    UserInterface.createButton("Obstacle", "sandboxObject = ObstacleCube");
+    UserInterface.createButton("Portal", "sandboxObject = PortalCube");
+    UserInterface.createButton("WinningCube", "sandboxObject = WinningCube");
+  }
 }

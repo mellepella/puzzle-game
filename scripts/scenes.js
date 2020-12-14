@@ -28,7 +28,7 @@ class Scenes {
 
 const scenes = [
   () => {
-    CubeCreator.create(WinningCube, 6, 4).update();
+    CubeCreator.create({type: WinningCube, x: 6, y: 4}).update();
     UserInterface.displayText({
       x: 5,
       y: 1,
