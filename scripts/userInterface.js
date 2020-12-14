@@ -20,12 +20,35 @@ class UserInterface {
     music.play();
   }
 
-  static getCursorPosition(event) {
-    var cRect = canvas.getBoundingClientRect();
-    var canvasX = Math.round(event.clientX - cRect.left);
-    var canvasY = Math.round(event.clientY - cRect.top);
+  static setCursorPosition(event) {
+    const cRect = canvas.getBoundingClientRect();
+    const canvasX = Math.round(event.clientX - cRect.left);
+    const canvasY = Math.round(event.clientY - cRect.top);
 
     mouseX = canvasX;
     mouseY = canvasY;
+  }
+
+  static createButton(content, onClick, id) {
+    const btn = document.createElement("BUTTON");
+    btn.innerHTML = content;
+
+    btn.onclick = function () {
+      eval(onClick);
+    };
+
+    document.body.appendChild(btn);
+  }
+
+  static createInput(props) {
+    const input = document.createElement("INPUT");
+    input.setAttribute("type", "text");
+    input.placeholder = props.placeholder;
+    input.id = props.id;
+    input.value = props.content;
+    input.onchange = function () {
+      eval(props.onchange);
+    };
+    document.body.appendChild(input);
   }
 }
