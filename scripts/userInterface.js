@@ -29,14 +29,26 @@ class UserInterface {
     mouseY = canvasY;
   }
 
-  static createButton(content, onClick) {
+  static createButton(content, onClick, id) {
     const btn = document.createElement("BUTTON");
     btn.innerHTML = content;
 
-    btn.onclick = function() {
+    btn.onclick = function () {
       eval(onClick);
-    }
+    };
 
-    document.body.appendChild(btn); 
+    document.body.appendChild(btn);
+  }
+
+  static createInput(props) {
+    const input = document.createElement("INPUT");
+    input.setAttribute("type", "text");
+    input.placeholder = props.placeholder;
+    input.id = props.id;
+    input.value = props.content;
+    input.onchange = function () {
+      eval(props.onchange);
+    };
+    document.body.appendChild(input);
   }
 }

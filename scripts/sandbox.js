@@ -2,16 +2,28 @@ let sandboxLevel = "";
 let sandboxObject = ObstacleCube;
 let sanboxTpX = 3;
 let sandboxTpY = 3;
-let sandboxPortalColor = "Blue"
+let sandboxPortalColor = "Blue";
 
 class Sandbox {
   static update() {
+    UserInterface.displayText({
+      content: `x: ${Math.floor(mouseX / UNIT_SIZE)}, y:${Math.floor(
+        mouseY / UNIT_SIZE
+      )}`,
+      x: 1,
+      y: 2,
+    });
     this.drawMarking(mouseX, mouseY);
   }
   static pushLevel() {
     scenes.splice(scenes.length - 1, 1, () => {
       eval(sandboxLevel);
     });
+  }
+
+  static updatePortalColor() {
+    const inputElem = document.getElementById("portal-color-input");
+    sandboxPortalColor = inputElem.value;
   }
 
   static addObject(props) {
@@ -35,10 +47,16 @@ class Sandbox {
       UNIT_SIZE
     );
   }
-  
-  static createButtons() {
+
+  static createUtils() {
     UserInterface.createButton("Obstacle", "sandboxObject = ObstacleCube");
     UserInterface.createButton("Portal", "sandboxObject = PortalCube");
     UserInterface.createButton("WinningCube", "sandboxObject = WinningCube");
+    UserInterface.createInput({
+      placeholder: "Portal color",
+      id: "portal-color-input",
+      content: "Blue",
+      onchange: "Sandbox.updatePortalColor();",
+    });
   }
 }
