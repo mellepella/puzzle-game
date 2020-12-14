@@ -19,16 +19,9 @@ const CANVAS_HEIGHT = 500;
 
 let currentScene;
 
-let debug = false;
+let debug = true;
 
-if (debug) {
-  scenes.push(() => {});
-  currentScene = scenes.length;
-  Sandbox.createUtils();
-  debugListener();
-} else {
-  currentScene = 1;
-}
+currentScene = 1;
 
 const FONT = "Verdana";
 
@@ -60,6 +53,15 @@ class Game {
     elapsedSeconds = elapsedSeconds - elapsedMinutes * 60;
 
     return [elapsedSeconds, elapsedMinutes];
+  }
+
+  static checkDebug() {
+    if (debug) {
+      scenes.push(() => {});
+      currentScene = scenes.length;
+      Sandbox.createUtils();
+      debugListener();
+    }
   }
 
   static clearCanvas() {
@@ -110,6 +112,7 @@ class Game {
 
 AssetStore.loadTextures().then(() => {
   PLAYER_CUBE.texture = AssetStore.getTexture("player");
+  Game.checkDebug();
 
   setInterval(function () {
     UserInterface.playMusic("theme");
