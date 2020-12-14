@@ -50,11 +50,11 @@ const scenes = [
       content:
         "Use the obstacles to stop and change the direction you're going!",
     });
-    CubeCreator.create(WinningCube, 4, 3).update();
-    CubeCreator.create(ObstacleCube, 7, 2).update();
-    CubeCreator.create(ObstacleCube, 13, 4).update();
-    CubeCreator.create(ObstacleCube, 6, 6).update();
-    CubeCreator.create(ObstacleCube, 12, 7).update();
+    CubeCreator.create({type: WinningCube, x: 4, y: 3}).update();
+    CubeCreator.create({type: ObstacleCube, x:7, y:2}).update();
+    CubeCreator.create({type: ObstacleCube, x: 13, y: 4}).update();
+    CubeCreator.create({type: ObstacleCube, x: 6, y: 6}).update();
+    CubeCreator.create({type: ObstacleCube, x: 12, y: 7}).update();
   },
   () => {
     UserInterface.displayText({
@@ -64,13 +64,13 @@ const scenes = [
       content:
         "If you get stuck, press the R key to restart from the start of the level.",
     });
-    CubeCreator.create(WinningCube, 12, 7).update();
-    CubeCreator.create(ObstacleCube, 9, 2).update();
-    CubeCreator.create(ObstacleCube, 6, 4).update();
-    CubeCreator.create(ObstacleCube, 12, 4).update();
-    CubeCreator.create(ObstacleCube, 13, 5).update();
-    CubeCreator.create(ObstacleCube, 5, 6).update();
-    CubeCreator.create(ObstacleCube, 11, 7).update();
+    CubeCreator.create({type: WinningCube, x: 12, y: 7}).update();
+    CubeCreator.create({type: ObstacleCube, x: 9, y: 2}).update();
+    CubeCreator.create({type: ObstacleCube, x: 6, y: 4}).update();
+    CubeCreator.create({type: ObstacleCube, x: 12, y: 4}).update();
+    CubeCreator.create({type: ObstacleCube, x: 13, y: 5}).update();
+    CubeCreator.create({type: ObstacleCube, x: 5, y: 6}).update();
+    CubeCreator.create({type: ObstacleCube, x: 11, y: 7}).update();
   },
   () => {
     UserInterface.displayText({
@@ -86,76 +86,76 @@ const scenes = [
       content:
         "Your time will be displayed in the right upper corner. Good luck!",
     });
-    CubeCreator.create(WinningCube, 9, 1).update();
-    CubeCreator.create(ObstacleCube, 9, 2).update();
-    CubeCreator.create(ObstacleCube, 9, 6).update();
-    CubeCreator.create(ObstacleCube, 11, 4).update();
-    CubeCreator.create(ObstacleCube, 10, 2).update();
-    CubeCreator.create(ObstacleCube, 5, 3).update();
-    CubeCreator.create(ObstacleCube, 6, 7).update();
-    CubeCreator.create(ObstacleCube, 4, 5).update();
-    CubeCreator.create(ObstacleCube, 8, 0).update();
+    CubeCreator.create({type: WinningCube, x: 9, y: 1}).update();
+    CubeCreator.create({type: ObstacleCube, x: 9, y: 2}).update();
+    CubeCreator.create({type: ObstacleCube, x: 9, y: 6}).update();
+    CubeCreator.create({type: ObstacleCube, x: 11, y: 4}).update();
+    CubeCreator.create({type: ObstacleCube, x: 10, y: 2}).update();
+    CubeCreator.create({type: ObstacleCube, x: 5, y: 3}).update();
+    CubeCreator.create({type: ObstacleCube, x: 6, y: 7}).update();
+    CubeCreator.create({type: ObstacleCube, x: 4, y: 5}).update();
+    CubeCreator.create({type: ObstacleCube, x: 8, y: 0}).update();
   },
   () => {
-    CubeCreator.create(WinningCube, 7, 7).update();
-    CubeCreator.create(ObstacleCube, 9, 7).update();
-    CubeCreator.create(ObstacleCube, 6, 5).update();
-    CubeCreator.create(ObstacleCube, 11, 6).update();
-    CubeCreator.create(ObstacleCube, 10, 1).update();
-    CubeCreator.create(ObstacleCube, 8, 2).update();
-    CubeCreator.create(ObstacleCube, 12, 2).update();
+    CubeCreator.create({type: WinningCube, x: 7, y: 7}).update();
+    CubeCreator.create({type: ObstacleCube, x: 9, y: 7}).update();
+    CubeCreator.create({type: ObstacleCube, x: 6, y: 5}).update();
+    CubeCreator.create({type: ObstacleCube, x: 11, y: 6}).update();
+    CubeCreator.create({type: ObstacleCube, x: 10, y: 1}).update();
+    CubeCreator.create({type: ObstacleCube, x: 8, y: 2}).update();
+    CubeCreator.create({type: ObstacleCube, x: 12, y: 2}).update();
   },
   () => {
-    CubeCreator.create(WinningCube, 8, 7).update();
-    CubeCreator.create(ObstacleCube, 6, 4).update();
-    CubeCreator.create(ObstacleCube, 7, 1).update();
-    CubeCreator.create(ObstacleCube, 5, 2).update();
-    CubeCreator.create(ObstacleCube, 11, 3).update();
-    CubeCreator.create(ObstacleCube, 6, 5).update();
-    CubeCreator.create(ObstacleCube, 10, 0).update();
-    CubeCreator.create(ObstacleCube, 10, 6).update();
-    CubeCreator.create(ObstacleCube, 11, 4).update();
+    CubeCreator.create({type: WinningCube, x: 8, y: 7}).update();
+    CubeCreator.create({type: ObstacleCube, x: 6, y: 4}).update();
+    CubeCreator.create({type: ObstacleCube, x: 7, y: 1}).update();
+    CubeCreator.create({type: ObstacleCube, x: 5, y: 2}).update();
+    CubeCreator.create({type: ObstacleCube, x: 11, y: 3}).update();
+    CubeCreator.create({type: ObstacleCube, x: 6, y: 5}).update();
+    CubeCreator.create({type: ObstacleCube, x: 10, y: 0}).update();
+    CubeCreator.create({type: ObstacleCube, x: 10, y: 6}).update();
+    CubeCreator.create({type: ObstacleCube, x: 11, y: 4}).update();
   },
   () => {
-    CubeCreator.create(WinningCube, 6, 2).update();
-    CubeCreator.create(ObstacleCube, 13, 1).update();
-    CubeCreator.create(ObstacleCube, 9, 2).update();
-    CubeCreator.create(ObstacleCube, 12, 4).update();
-    CubeCreator.create(ObstacleCube, 8, 4).update();
-    CubeCreator.create(ObstacleCube, 14, 5).update();
-    CubeCreator.create(ObstacleCube, 7, 6).update();
-    CubeCreator.create(ObstacleCube, 11, 7).update();
-    CubeCreator.create(ObstacleCube, 5, 7).update();
-    CubeCreator.create(ObstacleCube, 10, 8).update();
+    CubeCreator.create({type: WinningCube, x: 6, y: 2}).update();
+    CubeCreator.create({type: ObstacleCube, x: 13, y: 1}).update();
+    CubeCreator.create({type: ObstacleCube, x: 9, y: 2}).update();
+    CubeCreator.create({type: ObstacleCube, x: 12, y: 4}).update();
+    CubeCreator.create({type: ObstacleCube, x: 8, y: 4}).update();
+    CubeCreator.create({type: ObstacleCube, x: 14, y: 5}).update();
+    CubeCreator.create({type: ObstacleCube, x: 7, y: 6}).update();
+    CubeCreator.create({type: ObstacleCube, x: 11, y: 7}).update();
+    CubeCreator.create({type: ObstacleCube, x: 5, y: 7}).update();
+    CubeCreator.create({type: ObstacleCube, x: 10, y: 8}).update();
   },
   () => {
-    CubeCreator.create(WinningCube, 4, 4).update();
-    CubeCreator.create(WinningCube, 10, 2).update();
-    CubeCreator.create(ObstacleCube, 6, 4).update();
-    CubeCreator.create(ObstacleCube, 12, 4).update();
-    CubeCreator.create(ObstacleCube, 7, 6).update();
-    CubeCreator.create(ObstacleCube, 11, 7).update();
-    CubeCreator.create(ObstacleCube, 14, 6).update();
-    CubeCreator.create(ObstacleCube, 13, 2).update();
-    CubeCreator.create(ObstacleCube, 4, 3).update();
-    CubeCreator.create(ObstacleCube, 5, 8).update();
+    CubeCreator.create({type: WinningCube, x: 4, y: 4}).update();
+    CubeCreator.create({type: WinningCube, x: 10, y: 2}).update();
+    CubeCreator.create({type: ObstacleCube, x: 6, y: 4}).update();
+    CubeCreator.create({type: ObstacleCube, x: 12, y: 4}).update();
+    CubeCreator.create({type: ObstacleCube, x: 7, y: 6}).update();
+    CubeCreator.create({type: ObstacleCube, x: 11, y: 7}).update();
+    CubeCreator.create({type: ObstacleCube, x: 14, y: 6}).update();
+    CubeCreator.create({type: ObstacleCube, x: 13, y: 2}).update();
+    CubeCreator.create({type: ObstacleCube, x: 4, y: 3}).update();
+    CubeCreator.create({type: ObstacleCube, x: 5, y: 8}).update();
   },
   () => {
-    CubeCreator.create(ObstacleCube, 9, 7).update();
-    CubeCreator.create(ObstacleCube, 13, 6).update();
-    CubeCreator.create(ObstacleCube, 12, 2).update();
-    CubeCreator.create(ObstacleCube, 14, 3).update();
-    CubeCreator.create(ObstacleCube, 5, 5).update();
-    CubeCreator.create(ObstacleCube, 6, 8).update();
-    CubeCreator.create(ObstacleCube, 4, 4).update();
-    CubeCreator.create(ObstacleCube, 5, 1).update();
-    CubeCreator.create(WinningCube, 8, 1).update();
+    CubeCreator.create({type: ObstacleCube, x: 9, y: 7}).update();
+    CubeCreator.create({type: ObstacleCube, x: 13, y: 6}).update();
+    CubeCreator.create({type: ObstacleCube, x: 12, y: 2}).update();
+    CubeCreator.create({type: ObstacleCube, x: 14, y: 3}).update();
+    CubeCreator.create({type: ObstacleCube, x: 5, y: 5}).update();
+    CubeCreator.create({type: ObstacleCube, x: 6, y: 8}).update();
+    CubeCreator.create({type: ObstacleCube, x: 4, y: 4}).update();
+    CubeCreator.create({type: ObstacleCube, x: 5, y: 1}).update();
+    CubeCreator.create({type: WinningCube, x: 8, y: 1}).update();
   },
   () => {
-    CubeCreator.create(WinningCube, 9, 6).update();
-    CubeCreator.create(PortalCube, 13, 4, 4, 6, "Blue").update();
-    CubeCreator.create(PortalCube, 4, 6, 13, 4, "Green").update();
-    CubeCreator.create(ObstacleCube, 9, 5).update();
+    CubeCreator.create({type: WinningCube, x: 9, y: 6}).update();
+    CubeCreator.create({type: PortalCube, x: 13, y: 4, tpX: 4, tpY: 6, color: "Blue"}).update();
+    CubeCreator.create({type: PortalCube, x: 4, y: 6, tpX: 13, tpY: 4, color: "Green"}).update();
+    CubeCreator.create({type: ObstacleCube, x: 9, y: 5}).update();
     UserInterface.displayText({
       x: 5,
       y: 1,
@@ -164,27 +164,27 @@ const scenes = [
     });
   },
   () => {
-    CubeCreator.create(WinningCube, 9, 8).update();
-    CubeCreator.create(PortalCube, 9, 2, 13, 8, "Blue").update();
-    CubeCreator.create(ObstacleCube, 9, 7).update();
-    CubeCreator.create(PortalCube, 13, 8, 9, 2, "Green").update();
-    CubeCreator.create(ObstacleCube, 13, 4).update();
-    CubeCreator.create(ObstacleCube, 6, 5).update();
-    CubeCreator.create(ObstacleCube, 7, 0).update();
-    CubeCreator.create(ObstacleCube, 11, 1).update();
-    CubeCreator.create(ObstacleCube, 10, 3).update();
+    CubeCreator.create({type: WinningCube, x: 9, y: 8}).update();
+    CubeCreator.create({type: PortalCube, x: 9, y: 2, tpX: 13, tpY: 8, color: "Blue"}).update();
+    CubeCreator.create({type: ObstacleCube, x: 9, y: 7}).update();
+    CubeCreator.create({type: PortalCube, x: 13, y: 8, tpX: 9, tpY: 2, color: "Green"}).update();
+    CubeCreator.create({type: ObstacleCube, x: 13, y: 4}).update();
+    CubeCreator.create({type: ObstacleCube, x: 6, y: 5}).update();
+    CubeCreator.create({type: ObstacleCube, x: 7, y: 0}).update();
+    CubeCreator.create({type: ObstacleCube, x: 11, y: 1}).update();
+    CubeCreator.create({type: ObstacleCube, x: 10, y: 3}).update();
   },
   () => {
-    CubeCreator.create(ObstacleCube, 6, 3).update();
-    CubeCreator.create(ObstacleCube, 12, 4).update();
-    CubeCreator.create(PortalCube, 11, 6, 12, 2, "Blue").update();
-    CubeCreator.create(PortalCube, 12, 2, 11, 6, "Green").update();
-    CubeCreator.create(ObstacleCube, 7, 7).update();
-    CubeCreator.create(ObstacleCube, 5, 2).update();
-    CubeCreator.create(PortalCube, 6, 7, 6, 0, "Red").update();
-    CubeCreator.create(PortalCube, 6, 0, 6, 7, "Purple").update();
-    CubeCreator.create(ObstacleCube, 5, 6).update();
-    CubeCreator.create(WinningCube, 10, 2).update();
+    CubeCreator.create({type: ObstacleCube, x: 6, y: 3}).update();
+    CubeCreator.create({type: ObstacleCube, x: 12, y: 4}).update();
+    CubeCreator.create({type: PortalCube, x: 11, y: 6, tpX: 12, tpY: 2, color: "Blue"}).update();
+    CubeCreator.create({type: PortalCube, x: 12, y: 2, tpX: 11, tpY: 6, color: "Green"}).update();
+    CubeCreator.create({type: ObstacleCube, x: 7, y: 7}).update();
+    CubeCreator.create({type: ObstacleCube, x: 5, y: 2}).update();
+    CubeCreator.create({type: PortalCube, x: 6, y: 7, tpX: 6, tpY: 0, color: "Red"}).update();
+    CubeCreator.create({type: PortalCube, x: 6, y: 0, tpX: 6, tpY: 7, color: "Purple"}).update();
+    CubeCreator.create({type: ObstacleCube, x: 5, y: 6}).update();
+    CubeCreator.create({type: WinningCube, x: 10, y: 2}).update();
   },
   () => {
     Scenes.winningScene();

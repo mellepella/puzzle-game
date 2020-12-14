@@ -1,5 +1,5 @@
 let sandboxLevel = "";
-let sandboxObject = PortalCube;
+let sandboxObject = ObstacleCube;
 let sanboxTpX = 3;
 let sandboxTpY = 3;
 let sandboxPortalColor = "Blue"
