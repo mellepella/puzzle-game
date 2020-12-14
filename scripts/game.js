@@ -19,7 +19,7 @@ const CANVAS_HEIGHT = 500;
 
 let currentScene;
 
-let debug = true;
+let debug = false;
 
 if (debug) {
   scenes.push(() => {});

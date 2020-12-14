@@ -141,6 +141,17 @@ const scenes = [
     CubeCreator.create(ObstacleCube, 5, 8).update();
   },
   () => {
+    CubeCreator.create(ObstacleCube, 9, 7).update();
+    CubeCreator.create(ObstacleCube, 13, 6).update();
+    CubeCreator.create(ObstacleCube, 12, 2).update();
+    CubeCreator.create(ObstacleCube, 14, 3).update();
+    CubeCreator.create(ObstacleCube, 5, 5).update();
+    CubeCreator.create(ObstacleCube, 6, 8).update();
+    CubeCreator.create(ObstacleCube, 4, 4).update();
+    CubeCreator.create(ObstacleCube, 5, 1).update();
+    CubeCreator.create(WinningCube, 8, 1).update();
+  },
+  () => {
     CubeCreator.create(WinningCube, 9, 6).update();
     CubeCreator.create(PortalCube, 13, 4, 4, 6, "Blue").update();
     CubeCreator.create(PortalCube, 4, 6, 13, 4, "Green").update();
