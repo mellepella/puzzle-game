@@ -1,6 +1,6 @@
 let sandboxLevel = "";
 let sandboxObject = ObstacleCube;
-let sanboxTpX = 3;
+let sandboxTpX = 3;
 let sandboxTpY = 3;
 let sandboxPortalColor = "Blue";
 
@@ -21,6 +21,19 @@ class Sandbox {
     });
   }
 
+  static updateTp(id) {
+    const inputElem = document.getElementById(id);
+    const content = inputElem.value;
+    console.log(id, sandboxTpX);
+
+    if(id === "tpx") {
+      sandboxTpX = eval(content);
+    }
+    else if(id === "tpy") {
+      sandboxTpY = eval(content);
+    }
+  }
+
   static updatePortalColor() {
     const inputElem = document.getElementById("portal-color-input");
     sandboxPortalColor = inputElem.value;
@@ -32,7 +45,7 @@ class Sandbox {
       x: ${props.x}, 
       y: ${props.y},
       color: "${sandboxPortalColor}",
-      tpX: ${sanboxTpX},
+      tpX: ${sandboxTpX},
       tpY: ${sandboxTpY}
     }).update();`;
     this.pushLevel();
@@ -57,6 +70,19 @@ class Sandbox {
       id: "portal-color-input",
       content: "Blue",
       onchange: "Sandbox.updatePortalColor();",
+      type: "text",
     });
+    UserInterface.createInput({
+      placeholder: "Tp X",
+      id: "tpx",
+      onchange: 'Sandbox.updateTp("tpx");',
+      type: "number",
+    });
+    UserInterface.createInput({
+      placeholder: "Tp Y",
+      id: "tpy",
+      onchange: 'Sandbox.updateTp("tpy");',
+      type: "number",
+    })
   }
 }

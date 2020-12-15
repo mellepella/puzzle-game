@@ -42,10 +42,11 @@ class UserInterface {
 
   static createInput(props) {
     const input = document.createElement("INPUT");
-    input.setAttribute("type", "text");
+    input.setAttribute("type", props.type);
     input.placeholder = props.placeholder;
     input.id = props.id;
     input.value = props.content;
+    
     input.onchange = function () {
       eval(props.onchange);
     };
