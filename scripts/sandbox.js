@@ -1,8 +1,10 @@
-let sandboxLevel = "";
-let sandboxObject = ObstacleCube;
-let sandboxTpX = 3;
-let sandboxTpY = 3;
-let sandboxPortalColor = "Blue";
+const sandbox = {
+  level: "",
+  object: ObstacleCube,
+  tpX: 0,
+  tpY: 0,
+  portalColor: "Blue",
+}
 
 class Sandbox {
   static update() {
@@ -17,36 +19,36 @@ class Sandbox {
   }
   static pushLevel() {
     scenes.splice(scenes.length - 1, 1, () => {
-      eval(sandboxLevel);
+      eval(sandbox.level);
     });
   }
 
   static updateTp(id) {
     const inputElem = document.getElementById(id);
     const content = inputElem.value;
-    console.log(id, sandboxTpX);
+    console.log(id, sandbox.tpX);
 
     if(id === "tpx") {
-      sandboxTpX = eval(content);
+      sandbox.tpX = eval(content);
     }
     else if(id === "tpy") {
-      sandboxTpY = eval(content);
+      sandbox.tpY = eval(content);
     }
   }
 
   static updatePortalColor() {
     const inputElem = document.getElementById("portal-color-input");
-    sandboxPortalColor = inputElem.value;
+    sandbox.portalColor = inputElem.value;
   }
 
   static addObject(props) {
-    sandboxLevel += `CubeCreator.create({ 
+    sandbox.level += `CubeCreator.create({ 
       type: ${props.type.name}, 
       x: ${props.x}, 
       y: ${props.y},
-      color: "${sandboxPortalColor}",
-      tpX: ${sandboxTpX},
-      tpY: ${sandboxTpY}
+      color: "${sandbox.portalColor}",
+      tpX: ${sandbox.tpX},
+      tpY: ${sandbox.tpY}
     }).update();`;
     this.pushLevel();
   }
@@ -62,9 +64,9 @@ class Sandbox {
   }
 
   static createUtils() {
-    UserInterface.createButton("Obstacle", "sandboxObject = ObstacleCube");
-    UserInterface.createButton("Portal", "sandboxObject = PortalCube");
-    UserInterface.createButton("WinningCube", "sandboxObject = WinningCube");
+    UserInterface.createButton("Obstacle", "sandbox.object = ObstacleCube");
+    UserInterface.createButton("Portal", "sandbox.object = PortalCube");
+    UserInterface.createButton("WinningCube", "sandbox.object = WinningCube");
     UserInterface.createInput({
       placeholder: "Portal color",
       id: "portal-color-input",
