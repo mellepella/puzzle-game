@@ -1,4 +1,5 @@
 const sandbox = {
+  changes: [""],
   level: "",
   object: ObstacleCube,
   tpX: 0,
@@ -17,8 +18,17 @@ class Sandbox {
     });
     this.drawMarking(mouseX, mouseY);
   }
+
+  static redo() {
+    const changes = sandbox.changes;
+    changes.splice(changes.length - 1, 1);
+  }
+
   static pushLevel() {
+    const changes = sandbox.changes;
+
     scenes.splice(scenes.length - 1, 1, () => {
+      sandbox.level = changes[changes.length - 1];
       eval(sandbox.level);
     });
   }
@@ -42,14 +52,14 @@ class Sandbox {
   }
 
   static addObject(props) {
-    sandbox.level += `CubeCreator.create({ 
+    sandbox.changes.push(sandbox.level + `CubeCreator.create({ 
       type: ${props.type.name}, 
       x: ${props.x}, 
       y: ${props.y},
       color: "${sandbox.portalColor}",
       tpX: ${sandbox.tpX},
       tpY: ${sandbox.tpY}
-    }).update();`;
+    }).update();`);
     this.pushLevel();
   }
 
