@@ -77,6 +77,7 @@ class Sandbox {
     UserInterface.createButton("Obstacle", "sandbox.object = ObstacleCube");
     UserInterface.createButton("Portal", "sandbox.object = PortalCube");
     UserInterface.createButton("WinningCube", "sandbox.object = WinningCube");
+    UserInterface.createButton("Redo", "Sandbox.redo()");
     UserInterface.createInput({
       placeholder: "Portal color",
       id: "portal-color-input",
