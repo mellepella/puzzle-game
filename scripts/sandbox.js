@@ -21,7 +21,10 @@ class Sandbox {
 
   static redo() {
     const changes = sandbox.changes;
-    changes.splice(changes.length - 1, 1);
+
+    if(changes.length - 1 > 0) {
+      changes.splice(changes.length - 1, 1);
+    }
   }
 
   static pushLevel() {

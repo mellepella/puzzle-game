@@ -1,5 +1,5 @@
-let mouseX = 0;
-let mouseY = 0;
+let mouseX = -50;
+let mouseY = -50;
 
 class UserInterface {
   static displayText(assets) {
