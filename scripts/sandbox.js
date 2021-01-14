@@ -1,5 +1,5 @@
 const sandbox = {
-  changes: [""],
+  history: [""],
   level: "",
   object: ObstacleCube,
   tpX: 0,
@@ -20,18 +20,18 @@ class Sandbox {
   }
 
   static redo() {
-    const changes = sandbox.changes;
+    const history = sandbox.history;
 
-    if(changes.length - 1 > 0) {
-      changes.splice(changes.length - 1, 1);
+    if(history.length - 1 > 0) {
+      history.splice(history.length - 1, 1);
     }
   }
 
   static pushLevel() {
-    const changes = sandbox.changes;
+    const history = sandbox.history;
 
     scenes.splice(scenes.length - 1, 1, () => {
-      sandbox.level = changes[changes.length - 1];
+      sandbox.level = history[history.length - 1];
       eval(sandbox.level);
     });
   }
@@ -50,7 +50,7 @@ class Sandbox {
   }
 
   static addObject(props) {
-    sandbox.changes.push(sandbox.level + `CubeCreator.create({ 
+    sandbox.history.push(sandbox.level + `CubeCreator.create({ 
       type: ${props.type.name}, 
       x: ${props.x}, 
       y: ${props.y},
