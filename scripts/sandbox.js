@@ -5,7 +5,7 @@ const sandbox = {
   tpX: 0,
   tpY: 0,
   portalColor: "Blue",
-}
+};
 
 class Sandbox {
   static update() {
@@ -22,7 +22,7 @@ class Sandbox {
   static undo() {
     const history = sandbox.history;
 
-    if(history.length - 1 > 0) {
+    if (history.length - 1 > 0) {
       history.splice(history.length - 1, 1);
     }
   }
@@ -50,14 +50,17 @@ class Sandbox {
   }
 
   static addObject(props) {
-    sandbox.history.push(sandbox.level + `CubeCreator.create({ 
+    sandbox.history.push(
+      sandbox.level +
+        `CubeCreator.create({ 
       type: ${props.type.name}, 
       x: ${props.x}, 
       y: ${props.y},
       color: "${sandbox.portalColor}",
       tpX: ${sandbox.tpX},
       tpY: ${sandbox.tpY}
-    }).update();`);
+    }).update();`
+    );
     this.pushLevel();
   }
 
@@ -75,7 +78,7 @@ class Sandbox {
     UserInterface.createButton("Obstacle", "sandbox.object = ObstacleCube");
     UserInterface.createButton("Portal", "sandbox.object = PortalCube");
     UserInterface.createButton("WinningCube", "sandbox.object = WinningCube");
-    UserInterface.createButton("Undo", "Sandbox.undo()");
+
     UserInterface.createInput({
       placeholder: "Portal color",
       id: "portal-color-input",
@@ -94,6 +97,8 @@ class Sandbox {
       id: "tpY",
       onchange: 'Sandbox.updateTp("tpY");',
       type: "number",
-    })
+    });
+
+    UserInterface.createButton("Undo", "Sandbox.undo()");
   }
 }
