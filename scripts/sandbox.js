@@ -1,5 +1,5 @@
 const sandbox = {
-  history: [""],
+  history: [null],
   level: "",
   object: ObstacleCube,
   tpX: 0,
