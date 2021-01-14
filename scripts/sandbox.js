@@ -19,7 +19,7 @@ class Sandbox {
     this.drawMarking(mouseX, mouseY);
   }
 
-  static redo() {
+  static undo() {
     const history = sandbox.history;
 
     if(history.length - 1 > 0) {
@@ -75,7 +75,7 @@ class Sandbox {
     UserInterface.createButton("Obstacle", "sandbox.object = ObstacleCube");
     UserInterface.createButton("Portal", "sandbox.object = PortalCube");
     UserInterface.createButton("WinningCube", "sandbox.object = WinningCube");
-    UserInterface.createButton("Redo", "Sandbox.redo()");
+    UserInterface.createButton("Undo", "Sandbox.undo()");
     UserInterface.createInput({
       placeholder: "Portal color",
       id: "portal-color-input",
