@@ -10,7 +10,7 @@ const sandbox = {
 class Sandbox {
   static update() {
     UserInterface.displayText({
-      content: `x: ${Math.floor(mouseX / UNIT_SIZE)}, y:${Math.floor(
+      content: `x: ${Math.floor(mouseX / UNIT_SIZE)}, y: ${Math.floor(
         mouseY / UNIT_SIZE
       )}`,
       x: 1,
@@ -41,12 +41,7 @@ class Sandbox {
     const content = inputElem.value;
     console.log(id, sandbox.tpX);
 
-    if(id === "tpx") {
-      sandbox.tpX = eval(content);
-    }
-    else if(id === "tpy") {
-      sandbox.tpY = eval(content);
-    }
+    sandbox[id] = eval(content);
   }
 
   static updatePortalColor() {
@@ -90,14 +85,14 @@ class Sandbox {
     });
     UserInterface.createInput({
       placeholder: "Tp X",
-      id: "tpx",
-      onchange: 'Sandbox.updateTp("tpx");',
+      id: "tpX",
+      onchange: 'Sandbox.updateTp("tpX");',
       type: "number",
     });
     UserInterface.createInput({
       placeholder: "Tp Y",
-      id: "tpy",
-      onchange: 'Sandbox.updateTp("tpy");',
+      id: "tpY",
+      onchange: 'Sandbox.updateTp("tpY");',
       type: "number",
     })
   }
