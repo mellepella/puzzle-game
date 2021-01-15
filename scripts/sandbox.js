@@ -1,5 +1,5 @@
 const sandbox = {
-  history: [null],
+  history: [],
   level: "",
   object: ObstacleCube,
   tpX: 0,
@@ -22,16 +22,14 @@ class Sandbox {
   static undo() {
     const history = sandbox.history;
 
-    if (history.length - 1 > 0) {
-      history.splice(history.length - 1, 1);
-    }
+    history.splice(history.length - 1, 1);
   }
 
   static pushLevel() {
     const history = sandbox.history;
 
     scenes.splice(scenes.length - 1, 1, () => {
-      sandbox.level = history[history.length - 1];
+      sandbox.level = history[history.length - 1] || "";
       eval(sandbox.level);
     });
   }
