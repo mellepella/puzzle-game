@@ -1,13 +1,16 @@
-let sandboxLevel = "";
-let sandboxObject = ObstacleCube;
-let sanboxTpX = 3;
-let sandboxTpY = 3;
-let sandboxPortalColor = "Blue";
+const sandbox = {
+  history: [],
+  level: "",
+  object: ObstacleCube,
+  tpX: 0,
+  tpY: 0,
+  portalColor: "Blue",
+};
 
 class Sandbox {
   static update() {
     UserInterface.displayText({
-      content: `x: ${Math.floor(mouseX / UNIT_SIZE)}, y:${Math.floor(
+      content: `x: ${Math.floor(mouseX / UNIT_SIZE)}, y: ${Math.floor(
         mouseY / UNIT_SIZE
       )}`,
       x: 1,
@@ -15,26 +18,46 @@ class Sandbox {
     });
     this.drawMarking(mouseX, mouseY);
   }
+
+  static undo() {
+    const history = sandbox.history;
+
+    history.splice(history.length - 1, 1);
+  }
+
   static pushLevel() {
+    const history = sandbox.history;
+
     scenes.splice(scenes.length - 1, 1, () => {
-      eval(sandboxLevel);
+      sandbox.level = history[history.length - 1] || "";
+      eval(sandbox.level);
     });
+  }
+
+  static updateTp(id) {
+    const inputElem = document.getElementById(id);
+    const content = inputElem.value;
+
+    sandbox[id] = eval(content);
   }
 
   static updatePortalColor() {
     const inputElem = document.getElementById("portal-color-input");
-    sandboxPortalColor = inputElem.value;
+    sandbox.portalColor = inputElem.value;
   }
 
   static addObject(props) {
-    sandboxLevel += `CubeCreator.create({ 
+    sandbox.history.push(
+      sandbox.level +
+        `CubeCreator.create({ 
       type: ${props.type.name}, 
       x: ${props.x}, 
       y: ${props.y},
-      color: "${sandboxPortalColor}",
-      tpX: ${sanboxTpX},
-      tpY: ${sandboxTpY}
-    }).update();`;
+      color: "${sandbox.portalColor}",
+      tpX: ${sandbox.tpX},
+      tpY: ${sandbox.tpY}
+    }).update();`
+    );
     this.pushLevel();
   }
 
@@ -49,14 +72,30 @@ class Sandbox {
   }
 
   static createUtils() {
-    UserInterface.createButton("Obstacle", "sandboxObject = ObstacleCube");
-    UserInterface.createButton("Portal", "sandboxObject = PortalCube");
-    UserInterface.createButton("WinningCube", "sandboxObject = WinningCube");
+    UserInterface.createButton("Obstacle", "sandbox.object = ObstacleCube");
+    UserInterface.createButton("Portal", "sandbox.object = PortalCube");
+    UserInterface.createButton("WinningCube", "sandbox.object = WinningCube");
+
     UserInterface.createInput({
       placeholder: "Portal color",
       id: "portal-color-input",
       content: "Blue",
       onchange: "Sandbox.updatePortalColor();",
+      type: "text",
     });
+    UserInterface.createInput({
+      placeholder: "Tp X",
+      id: "tpX",
+      onchange: 'Sandbox.updateTp("tpX");',
+      type: "number",
+    });
+    UserInterface.createInput({
+      placeholder: "Tp Y",
+      id: "tpY",
+      onchange: 'Sandbox.updateTp("tpY");',
+      type: "number",
+    });
+
+    UserInterface.createButton("Undo", "Sandbox.undo()");
   }
 }

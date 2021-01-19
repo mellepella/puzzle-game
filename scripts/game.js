@@ -84,27 +84,30 @@ class Game {
   static update() {
     if (gameIsRunning) {
       Game.clearCanvas();
-
-      if (debug) {
-        Sandbox.update();
-      }
-
-      PLAYER_CUBE.update();
-      UserInterface.displayText({
-        x: 18,
-        y: 1,
-        size: "20px",
-        content: `${this.calculateTime()[1]} : ${this.calculateTime()[0]}`,
-      });
-      UserInterface.displayText({
-        x: 1,
-        y: 1,
-        size: "20px",
-        content: `Level ${currentScene}`,
-      });
-    }
+    
+    PLAYER_CUBE.update();
 
     scenes[currentScene - 1]();
+
+    UserInterface.displayText({
+      x: 18,
+      y: 1,
+      size: "20px",
+      content: `${this.calculateTime()[1]} : ${this.calculateTime()[0]}`,
+    });
+
+    UserInterface.displayText({
+      x: 1,
+      y: 1,
+      size: "20px",
+      content: `Level ${currentScene}`,
+    });
+
+    if (debug) {
+      Sandbox.update();
+    }
+  }
+  
   }
 }
 
