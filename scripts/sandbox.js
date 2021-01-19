@@ -37,7 +37,6 @@ class Sandbox {
   static updateTp(id) {
     const inputElem = document.getElementById(id);
     const content = inputElem.value;
-    console.log(id, sandbox.tpX);
 
     sandbox[id] = eval(content);
   }
