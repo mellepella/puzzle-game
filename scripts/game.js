@@ -14,12 +14,13 @@ const KEYS = {
   restart: "r",
 };
 
+const debug =
+  new URLSearchParams(window.location.search).get("debug") === "true";
+
 const CANVAS_WIDTH = 1000;
 const CANVAS_HEIGHT = 500;
 
 let currentScene;
-
-let debug = true;
 
 currentScene = 1;
 
@@ -84,30 +85,29 @@ class Game {
   static update() {
     if (gameIsRunning) {
       Game.clearCanvas();
-    
-    PLAYER_CUBE.update();
 
-    scenes[currentScene - 1]();
+      PLAYER_CUBE.update();
 
-    UserInterface.displayText({
-      x: 18,
-      y: 1,
-      size: "20px",
-      content: `${this.calculateTime()[1]} : ${this.calculateTime()[0]}`,
-    });
+      scenes[currentScene - 1]();
 
-    UserInterface.displayText({
-      x: 1,
-      y: 1,
-      size: "20px",
-      content: `Level ${currentScene}`,
-    });
+      UserInterface.displayText({
+        x: 18,
+        y: 1,
+        size: "20px",
+        content: `${this.calculateTime()[1]} : ${this.calculateTime()[0]}`,
+      });
 
-    if (debug) {
-      Sandbox.update();
+      UserInterface.displayText({
+        x: 1,
+        y: 1,
+        size: "20px",
+        content: `Level ${currentScene}`,
+      });
+
+      if (debug) {
+        Sandbox.update();
+      }
     }
-  }
-  
   }
 }
 
