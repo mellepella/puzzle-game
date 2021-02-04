@@ -47,17 +47,25 @@ class Sandbox {
   }
 
   static addObject(props) {
-    sandbox.history.push(
-      sandbox.level +
-        `CubeCreator.create({ 
-      type: ${props.type.name}, 
-      x: ${props.x}, 
-      y: ${props.y},
-      color: "${sandbox.portalColor}",
-      tpX: ${sandbox.tpX},
-      tpY: ${sandbox.tpY}
-    }).update();`
-    );
+    let cube;
+    if(props.type.name === "PortalCube") {
+      cube = sandbox.level + `CubeCreator.create({ 
+        type: ${props.type.name}, 
+        x: ${props.x}, 
+        y: ${props.y},
+        color: "${sandbox.portalColor}",
+        tpX: ${sandbox.tpX},
+        tpY: ${sandbox.tpY}
+      }).update();`;
+    } else {
+      cube = sandbox.level + `CubeCreator.create({ 
+        type: ${props.type.name}, 
+        x: ${props.x}, 
+        y: ${props.y}
+      }).update();`;
+    }
+
+    sandbox.history.push(cube);
     this.pushLevel();
   }
 
