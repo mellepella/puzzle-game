@@ -118,7 +118,6 @@ AssetStore.loadTextures().then(() => {
   Game.checkDebug();
 
   setInterval(function () {
-    UserInterface.playMusic("theme");
     Game.update();
   }, UPDATE_TIME);
 });
