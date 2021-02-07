@@ -44,15 +44,11 @@ const PLAYER_CUBE = new PlayerCube(startingX, startingY);
 class Game {
   static calculateTime() {
     const endTime = new Date();
-
     const elapsedMilliseconds = endTime.getTime() - START_TIME.getTime();
-
     let elapsedSeconds = Math.round(elapsedMilliseconds / ONE_SECOND);
-
     const elapsedMinutes = Math.floor(elapsedSeconds / 60);
 
     elapsedSeconds = elapsedSeconds - elapsedMinutes * 60;
-
     return [elapsedSeconds, elapsedMinutes];
   }
 
@@ -71,7 +67,6 @@ class Game {
 
   static detectKeyPress(event) {
     const keypress = event.key;
-
     if (keypress === KEYS.restart) {
       Game.restart();
     }
