@@ -1,106 +1,118 @@
 // Time-trackers
 
-const startTime = new Date();
+const START_TIME = new Date();
 
-const oneSecond = 1000;
+const ONE_SECOND = 1000;
 
 // Variables used all around
 
-const KEY_CODES = {
-	'w': 119,
-	'a': 97,
-	's': 115,
-	'd': 100,
-	'r': 114
-}
+const KEYS = {
+  up: "w",
+  left: "a",
+  down: "s",
+  right: "d",
+  restart: "r",
+};
 
-const canvasWidth = 1000;
-const canvasHeight = 500;
+const debug =
+  new URLSearchParams(window.location.search).get("debug") === "true";
 
-let currentScene = 1;
+const CANVAS_WIDTH = 1000;
+const CANVAS_HEIGHT = 500;
 
-const font = "Arial";
+let currentScene;
+
+currentScene = 1;
+
+const FONT = "Verdana";
 
 let gameIsRunning = true;
 
-const updateTime = 5;
+const UPDATE_TIME = 5;
 
-const unitSize = 50;
+const UNIT_SIZE = 50;
 
-const playerVelocity = unitSize/10;
+const PLAYER_VELOCITY = UNIT_SIZE / 10;
 
-let startingX = unitSize * 9;
-let startingY = unitSize * 4;
-
+let startingX = UNIT_SIZE * 9;
+let startingY = UNIT_SIZE * 4;
 
 // Cubes
 
-const playerCube = new PlayerCube(startingX, startingY);
+const PLAYER_CUBE = new PlayerCube(startingX, startingY);
 
 class Game {
-	static calculateTime() {
-		const endTime = new Date();
+  static calculateTime() {
+    const endTime = new Date();
+    const elapsedMilliseconds = endTime.getTime() - START_TIME.getTime();
+    let elapsedSeconds = Math.round(elapsedMilliseconds / ONE_SECOND);
+    const elapsedMinutes = Math.floor(elapsedSeconds / 60);
 
-		const elapsedMilliseconds = endTime.getTime() - startTime.getTime();
+    elapsedSeconds = elapsedSeconds - elapsedMinutes * 60;
+    return [elapsedSeconds, elapsedMinutes];
+  }
 
-		let elapsedSeconds = Math.round(elapsedMilliseconds/oneSecond);
+  static checkDebug() {
+    if (debug) {
+      scenes.push(() => {});
+      currentScene = scenes.length;
+      Sandbox.createUtils();
+      debugListener();
+    }
+  }
 
-		const elapsedMinutes = Math.floor(elapsedSeconds/60);
+  static clearCanvas() {
+    ctx.drawImage(AssetStore.getTexture("background"), 0, 0);
+  }
 
-		elapsedSeconds = elapsedSeconds - elapsedMinutes * 60;
+  static detectKeyPress(event) {
+    const keypress = event.key;
+    if (keypress === KEYS.restart) {
+      Game.restart();
+    }
+    PLAYER_CUBE.go(keypress);
+  }
 
-		return [elapsedSeconds, elapsedMinutes];
-	}
+  static restart() {
+    PLAYER_CUBE.stop(startingX, startingY);
+  }
 
-	static clearCanvas() {
-		ctx.fillStyle = "#f0f0f0";
-		ctx.fillRect(0, 0, window.innerWidth, window.innerHeight)
-	}
+  static update() {
+    if (gameIsRunning) {
+      Game.clearCanvas();
 
-	static detectKeyPress(event) {
-		switch(event.charCode) {
-			case KEY_CODES.w:
-				playerCube.go('up');
-				break;
-			
-			case KEY_CODES.s:
-				playerCube.go('down');
-				break;
+      PLAYER_CUBE.update();
 
-			case KEY_CODES.a:
-				playerCube.go('left');
-				break;
-			
-			case KEY_CODES.d:
-				playerCube.go('right');
-				break;
-			
-			case KEY_CODES.r:
-				this.restart();
-				break;
-		}
-	}
+      scenes[currentScene - 1]();
 
-	static restart() {
-		playerCube.stop(startingX, startingY);
-		playerCube.isColliding = false;
-	}
+      UserInterface.displayText({
+        x: 18,
+        y: 1,
+        size: "20px",
+        content: `${this.calculateTime()[1]} : ${this.calculateTime()[0]}`,
+      });
 
-	static update() {
-		if(gameIsRunning) {
-			Game.clearCanvas();
-			playerCube.update();
-			UserInterface.displayText( {x: 17.2, y: 2, size: "20px", content: `${this.calculateTime()[1]} : ${this.calculateTime()[0]}`} );
-			UserInterface.displayText( { x: 17, y: 1, size: "20px", content: `Level ${currentScene}` });
-		}
+      UserInterface.displayText({
+        x: 1,
+        y: 1,
+        size: "20px",
+        content: `Level ${currentScene}`,
+      });
 
-		scenes[currentScene - 1]();
-	}
-
+      if (debug) {
+        Sandbox.update();
+      }
+    }
+  }
 }
 
 // Animate
 
-setInterval(function() {
-	Game.update();
-}, updateTime);
+AssetStore.loadTextures().then(() => {
+  PLAYER_CUBE.texture = AssetStore.getTexture("player");
+  Game.checkDebug();
+
+  setInterval(function () {
+    Game.update();
+  }, UPDATE_TIME);
+});

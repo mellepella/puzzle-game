@@ -1,11 +1,10 @@
-class WinningCube extends Cube{
-	constructor(x, y, color) {
-		super(x, y, '#f7ff63');
-	}
+class WinningCube extends Cube {
+  constructor(x, y, name) {
+    super(x, y, AssetStore.getTexture("winningCube"));
+  }
 
-	onCollision() {
-			currentScene += 1;
-			Game.restart();
-	}
-	
+  onCollision() {
+    currentScene += 1;
+    Game.restart();
+  }
 }

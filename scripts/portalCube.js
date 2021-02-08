@@ -1,44 +1,44 @@
-
 class PortalCube extends Cube {
-    constructor(x, y, color, tpX, tpY) {
-        super(x, y, color, tpX, tpY);
-        this.tpX = tpX;
-        this.tpY = tpY;
-    }
-    
-    onCollision(collisionSide) {
+  constructor(x, y, name, tpX, tpY) {
+    super(x, y, name, tpX, tpY);
+    this.tpX = tpX;
+    this.tpY = tpY;
 
-        let playerFutureY = playerCube.y + playerCube.velocityY;
-        let playerFutureX = playerCube.x + playerCube.velocityX;
+    this.texture = AssetStore.getTexture(`portal${name}`);
+  }
 
-        switch(collisionSide) {
-            case 'bottom':
-                if(playerFutureY < playerCube.y) {
-                    playerCube.x = this.tpX * unitSize;
-                    playerCube.y = this.tpY * unitSize;
-                }
-                break;
-            
-            case 'top':
-                if(playerFutureY > playerCube.y) {
-                    playerCube.x = this.tpX * unitSize;
-                    playerCube.y = this.tpY * unitSize;
-                }
-                break;
-            
-            case 'left':
-                if(playerFutureX > playerCube.x && playerFutureX <= this.x) {
-                        playerCube.x = this.tpX * unitSize;
-                        playerCube.y = this.tpY * unitSize;
-                }
-                break;
+  onCollision(collisionSide) {
+    let playerFutureY = PLAYER_CUBE.y + PLAYER_CUBE.velocityY;
+    let playerFutureX = PLAYER_CUBE.x + PLAYER_CUBE.velocityX;
 
-            case 'right':
-                if(playerFutureX < playerCube.x && playerFutureX <= this.x) {
-                        playerCube.x = this.tpX * unitSize;
-                        playerCube.y = this.tpY * unitSize;
-                }
-                break;
+    switch (collisionSide) {
+      case "bottom":
+        if (playerFutureY < PLAYER_CUBE.y) {
+          PLAYER_CUBE.x = this.tpX * UNIT_SIZE;
+          PLAYER_CUBE.y = this.tpY * UNIT_SIZE;
         }
+        break;
+
+      case "top":
+        if (playerFutureY > PLAYER_CUBE.y) {
+          PLAYER_CUBE.x = this.tpX * UNIT_SIZE;
+          PLAYER_CUBE.y = this.tpY * UNIT_SIZE;
+        }
+        break;
+
+      case "left":
+        if (playerFutureX > PLAYER_CUBE.x && playerFutureX <= this.x) {
+          PLAYER_CUBE.x = this.tpX * UNIT_SIZE;
+          PLAYER_CUBE.y = this.tpY * UNIT_SIZE;
+        }
+        break;
+
+      case "right":
+        if (playerFutureX < PLAYER_CUBE.x && playerFutureX >= this.x) {
+          PLAYER_CUBE.x = this.tpX * UNIT_SIZE;
+          PLAYER_CUBE.y = this.tpY * UNIT_SIZE;
+        }
+        break;
     }
+  }
 }
