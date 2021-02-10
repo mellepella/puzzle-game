@@ -28,6 +28,7 @@ class Scenes {
 
 const scenes = [
   () => {
+    CubeCreator.create({ type: ConveyorBelt, x: 9, y: 8, direction: KEYS.up }).update();
     CubeCreator.create({ type: WinningCube, x: 6, y: 4 }).update();
     UserInterface.displayText({
       x: 5,
