@@ -1,8 +1,8 @@
 class Scenes {
   static winningScene() {
     if (gameIsRunning) {
-      const elapsedSeconds = Game.calculateTime()[0];
-      const elapsedMinutes = Game.calculateTime()[1];
+      const elapsedSeconds = Game.calculateTime().elapsedSeconds;
+      const elapsedMinutes = Game.calculateTime().elapsedMinutes;
 
       const winningMessage = `You finished in ${elapsedMinutes} minute(s) and ${elapsedSeconds} second(s).`;
 

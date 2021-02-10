@@ -1,5 +1,12 @@
 let mouseX = -50;
 let mouseY = -50;
+const KEYS = {
+  up: "w",
+  left: "a",
+  down: "s",
+  right: "d",
+  restart: "r",
+};
 
 class UserInterface {
   static displayText(assets) {
