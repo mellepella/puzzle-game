@@ -5,7 +5,7 @@ const sandbox = {
   tpX: 0,
   tpY: 0,
   portalColor: "Blue",
-  beltDirection: KEYS.right,
+  beltDirection: "Right",
 };
 
 class Sandbox {
@@ -37,7 +37,7 @@ class Sandbox {
 
   static updateBeltDirection() {
     const inputElem = document.getElementById("beltDirection");
-    sandbox.beltDirection = KEYS[inputElem.value];
+    sandbox.beltDirection = inputElem.value;
   }
 
   static updateTp(id) {
@@ -54,7 +54,6 @@ class Sandbox {
 
   static addObject(props) {
     let cube;
-    console.log(props.type.name);
     switch(props.type.name) {
       case "PortalCube":
         cube = sandbox.level + `CubeCreator.create({ 
@@ -76,7 +75,6 @@ class Sandbox {
         }).update();`;
         break;
       default: 
-        console.log(props.type.name);
         cube = sandbox.level + `CubeCreator.create({ 
           type: ${props.type.name}, 
           x: ${props.x}, 
@@ -127,7 +125,7 @@ class Sandbox {
     UserInterface.createInput({
       placeholder: "Belt Direction",
       id: "beltDirection",
-      content: null,
+      content: "Right",
       onchange: 'Sandbox.updateBeltDirection()',
       type: "text",
     })

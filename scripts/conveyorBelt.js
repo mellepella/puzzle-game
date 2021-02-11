@@ -1,6 +1,6 @@
 class ConveyorBelt extends Cube {
   constructor(x, y, name, direction) {
-    super(x, y, AssetStore.getTexture("obstacle"));
+    super(x, y, AssetStore.getTexture(`conveyorBelt${direction}`));
     this.direction = direction;
   }
   onCollision(collisionSide) {
@@ -11,6 +11,6 @@ class ConveyorBelt extends Cube {
     } else if (collisionSide === "left" || collisionSide === "right") {
       PLAYER_CUBE.stop(PLAYER_CUBE.x - PLAYER_CUBE.velocityX, PLAYER_CUBE.y);
     }
-    PLAYER_CUBE.go(this.direction);
+    PLAYER_CUBE.go(KEYS[this.direction.toLowerCase()]);
   }
 }
