@@ -17,6 +17,7 @@ class Sandbox {
       x: 1,
       y: 2,
     });
+    UserInterface.displayText({content: `Chosen object: ${sandbox.object.name}`, x: 3, y: 1,});
     this.drawMarking(mouseX, mouseY);
   }
 
