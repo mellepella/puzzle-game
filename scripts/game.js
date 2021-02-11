@@ -14,7 +14,7 @@ const CANVAS_HEIGHT = 500;
 
 let currentScene;
 
-currentScene = 13;
+currentScene = 1;
 
 const FONT = "Verdana";
 
