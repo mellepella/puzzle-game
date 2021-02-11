@@ -6,14 +6,6 @@ const ONE_SECOND = 1000;
 
 // Variables used all around
 
-const KEYS = {
-  up: "w",
-  left: "a",
-  down: "s",
-  right: "d",
-  restart: "r",
-};
-
 const debug =
   new URLSearchParams(window.location.search).get("debug") === "true";
 
@@ -44,16 +36,12 @@ const PLAYER_CUBE = new PlayerCube(startingX, startingY);
 class Game {
   static calculateTime() {
     const endTime = new Date();
-
     const elapsedMilliseconds = endTime.getTime() - START_TIME.getTime();
-
     let elapsedSeconds = Math.round(elapsedMilliseconds / ONE_SECOND);
-
     const elapsedMinutes = Math.floor(elapsedSeconds / 60);
 
     elapsedSeconds = elapsedSeconds - elapsedMinutes * 60;
-
-    return [elapsedSeconds, elapsedMinutes];
+    return {elapsedSeconds, elapsedMinutes};
   }
 
   static checkDebug() {
@@ -71,7 +59,6 @@ class Game {
 
   static detectKeyPress(event) {
     const keypress = event.key;
-
     if (keypress === KEYS.restart) {
       Game.restart();
     }
@@ -94,7 +81,7 @@ class Game {
         x: 18,
         y: 1,
         size: "20px",
-        content: `${this.calculateTime()[1]} : ${this.calculateTime()[0]}`,
+        content: `${this.calculateTime().elapsedMinutes} : ${this.calculateTime().elapsedSeconds}`,
       });
 
       UserInterface.displayText({
@@ -118,7 +105,6 @@ AssetStore.loadTextures().then(() => {
   Game.checkDebug();
 
   setInterval(function () {
-    UserInterface.playMusic("theme");
     Game.update();
   }, UPDATE_TIME);
 });

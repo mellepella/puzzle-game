@@ -26,9 +26,9 @@ class PlayerCube extends Cube {
 
     if (
       this.x >= CANVAS_WIDTH - this.size ||
-      this.x <= 0 ||
+      this.x < 0 ||
       this.y >= CANVAS_HEIGHT - this.size ||
-      this.y <= 0
+      this.y < 0
     ) {
       Camera.shake(4);
       Game.restart();

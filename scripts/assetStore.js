@@ -31,6 +31,22 @@ const TEXTURES = {
     texture: undefined,
     source: "../assets/images/obstacle.png",
   },
+  conveyorBeltUp: {
+    texture: undefined,
+    source: "../assets/images/conveyorBeltUp.png",
+  },
+  conveyorBeltRight: {
+    texture: undefined,
+    source: "../assets/images/conveyorBeltRight.png",
+  },
+  conveyorBeltDown: {
+    texture: undefined,
+    source: "../assets/images/conveyorBeltDown.png",
+  },
+  conveyorBeltLeft: {
+    texture: undefined,
+    source: "../assets/images/conveyorBeltLeft.png",
+  }
 };
 
 class AssetStore {
