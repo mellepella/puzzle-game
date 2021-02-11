@@ -243,6 +243,82 @@ const scenes = [
     CubeCreator.create({ type: WinningCube, x: 10, y: 2 }).update();
   },
   () => {
+    UserInterface.displayText({
+      content: "Try using the conveyor belts to move around!",
+      x: 1,
+      y: 2.5,
+      size: "20px",
+    });
+    CubeCreator.create({
+      type: ConveyorBelt,
+      x: 9,
+      y: 7,
+      direction: "Right",
+    }).update();
+    CubeCreator.create({
+      type: ConveyorBelt,
+      x: 13,
+      y: 6,
+      direction: "Up",
+    }).update();
+    CubeCreator.create({
+      type: ConveyorBelt,
+      x: 10,
+      y: 7,
+      direction: "Right",
+    }).update();
+    CubeCreator.create({
+      type: ConveyorBelt,
+      x: 11,
+      y: 7,
+      direction: "Right",
+    }).update();
+    CubeCreator.create({
+      type: ConveyorBelt,
+      x: 13,
+      y: 5,
+      direction: "Up",
+    }).update();
+    CubeCreator.create({
+      type: ConveyorBelt,
+      x: 13,
+      y: 4,
+      direction: "Up",
+    }).update();
+    CubeCreator.create({ type: ObstacleCube, x: 12, y: 2 }).update();
+    CubeCreator.create({ type: ObstacleCube, x: 8, y: 3 }).update();
+    CubeCreator.create({
+      type: PortalCube,
+      x: 14,
+      y: 3,
+      color: "Blue",
+      tpX: 6,
+      tpY: 3,
+    }).update();
+    CubeCreator.create({
+      type: PortalCube,
+      x: 6,
+      y: 3,
+      color: "Green",
+      tpX: 14,
+      tpY: 3,
+    }).update();
+    CubeCreator.create({ type: WinningCube, x: 6, y: 6 }).update();
+    CubeCreator.create({ type: ObstacleCube, x: 7, y: 1 }).update();
+    CubeCreator.create({
+      type: ConveyorBelt,
+      x: 11,
+      y: 0,
+      direction: "Right",
+    }).update();
+    CubeCreator.create({
+      type: ConveyorBelt,
+      x: 15,
+      y: 1,
+      direction: "Down",
+    }).update();
+  },
+  () => {
     Scenes.winningScene();
   },
 ];
