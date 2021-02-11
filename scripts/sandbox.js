@@ -71,7 +71,6 @@ class Sandbox {
           type: ${props.type.name}, 
           x: ${props.x}, 
           y: ${props.y},
-          color: "${sandbox.portalColor}",
           direction: "${sandbox.beltDirection}",
         }).update();`;
         break;
