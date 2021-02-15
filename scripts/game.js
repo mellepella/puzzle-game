@@ -41,7 +41,7 @@ class Game {
     const elapsedMinutes = Math.floor(elapsedSeconds / 60);
 
     elapsedSeconds = elapsedSeconds - elapsedMinutes * 60;
-    return {elapsedSeconds, elapsedMinutes};
+    return { elapsedSeconds, elapsedMinutes };
   }
 
   static checkDebug() {
@@ -81,7 +81,9 @@ class Game {
         x: 18,
         y: 1,
         size: "20px",
-        content: `${this.calculateTime().elapsedMinutes} : ${this.calculateTime().elapsedSeconds}`,
+        content: `${this.calculateTime().elapsedMinutes} : ${
+          this.calculateTime().elapsedSeconds
+        }`,
       });
 
       UserInterface.displayText({
