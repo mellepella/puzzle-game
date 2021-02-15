@@ -17,7 +17,11 @@ class Sandbox {
       x: 1,
       y: 2,
     });
-    UserInterface.displayText({content: `Chosen object: ${sandbox.object.name}`, x: 3, y: 1,});
+    UserInterface.displayText({
+      content: `Chosen object: ${sandbox.object.name}`,
+      x: 3,
+      y: 1,
+    });
     this.drawMarking(mouseX, mouseY);
   }
 
@@ -37,8 +41,9 @@ class Sandbox {
   }
 
   static updateBeltDirection() {
-    const inputElem = document.getElementById("beltDirection");
-    sandbox.beltDirection = inputElem.value;
+    const selectElem = document.getElementById("belt-direction");
+
+    sandbox.beltDirection = selectElem.options[selectElem.selectedIndex].text;
   }
 
   static updateTp(id) {
@@ -49,15 +54,18 @@ class Sandbox {
   }
 
   static updatePortalColor() {
-    const inputElem = document.getElementById("portal-color-input");
-    sandbox.portalColor = inputElem.value;
+    const selectElem = document.getElementById("portal-color");
+
+    sandbox.portalColor = selectElem.options[selectElem.selectedIndex].text;
   }
 
   static addObject(props) {
     let cube;
-    switch(props.type.name) {
+    switch (props.type.name) {
       case "PortalCube":
-        cube = sandbox.level + `CubeCreator.create({ 
+        cube =
+          sandbox.level +
+          `CubeCreator.create({ 
           type: ${props.type.name}, 
           x: ${props.x}, 
           y: ${props.y},
@@ -67,15 +75,19 @@ class Sandbox {
         }).update();`;
         break;
       case "ConveyorBelt":
-        cube = sandbox.level + `CubeCreator.create({ 
+        cube =
+          sandbox.level +
+          `CubeCreator.create({ 
           type: ${props.type.name}, 
           x: ${props.x}, 
           y: ${props.y},
           direction: "${sandbox.beltDirection}",
         }).update();`;
         break;
-      default: 
-        cube = sandbox.level + `CubeCreator.create({ 
+      default:
+        cube =
+          sandbox.level +
+          `CubeCreator.create({ 
           type: ${props.type.name}, 
           x: ${props.x}, 
           y: ${props.y}
@@ -99,36 +111,35 @@ class Sandbox {
   static createUtils() {
     UserInterface.createButton("Obstacle", "sandbox.object = ObstacleCube");
     UserInterface.createButton("WinningCube", "sandbox.object = WinningCube");
-    
+
     UserInterface.createButton("Portal", "sandbox.object = PortalCube");
-    UserInterface.createInput({
-      placeholder: "Portal color",
-      id: "portal-color-input",
-      content: "Blue",
-      onchange: "Sandbox.updatePortalColor();",
-      type: "text",
+    UserInterface.createDropdown({
+      options: ["Blue", "Green", "Red", "Purple"],
+      id: "portal-color",
+      onChange: "Sandbox.updatePortalColor();",
     });
     UserInterface.createInput({
       placeholder: "Tp X",
       id: "tpX",
-      onchange: 'Sandbox.updateTp("tpX");',
+      onChange: 'Sandbox.updateTp("tpX");',
       type: "number",
     });
     UserInterface.createInput({
       placeholder: "Tp Y",
       id: "tpY",
-      onchange: 'Sandbox.updateTp("tpY");',
+      onChange: 'Sandbox.updateTp("tpY");',
       type: "number",
     });
 
-    UserInterface.createButton("Conveyor Belt", "sandbox.object = ConveyorBelt");
-    UserInterface.createInput({
-      placeholder: "Belt Direction",
-      id: "beltDirection",
-      content: "Right",
-      onchange: 'Sandbox.updateBeltDirection()',
-      type: "text",
-    })
+    UserInterface.createButton(
+      "Conveyor Belt",
+      "sandbox.object = ConveyorBelt"
+    );
+    UserInterface.createDropdown({
+      options: ["Right", "Left", "Up", "Down"],
+      id: "belt-direction",
+      onChange: "Sandbox.updateBeltDirection()",
+    });
 
     UserInterface.createButton("Undo", "Sandbox.undo()");
   }
