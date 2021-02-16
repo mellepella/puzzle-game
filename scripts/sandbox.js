@@ -5,7 +5,7 @@ const sandbox = {
   tpX: 0,
   tpY: 0,
   portalColor: "Blue",
-  beltDirection: "Right",
+  beltDirection: "Up",
 };
 
 class Sandbox {
@@ -136,7 +136,7 @@ class Sandbox {
       "sandbox.object = ConveyorBelt"
     );
     UserInterface.createDropdown({
-      options: ["Right", "Left", "Up", "Down"],
+      options: ["Up", "Left", "Right", "Down"],
       id: "belt-direction",
       onChange: "Sandbox.updateBeltDirection()",
     });
