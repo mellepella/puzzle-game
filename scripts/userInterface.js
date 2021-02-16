@@ -53,10 +53,26 @@ class UserInterface {
     input.placeholder = props.placeholder;
     input.id = props.id;
     input.value = props.content;
-    
+
     input.onchange = function () {
-      eval(props.onchange);
+      eval(props.onChange);
     };
     document.body.appendChild(input);
+  }
+
+  static createDropdown(props) {
+    const selectTag = document.createElement("SELECT");
+    selectTag.id = props.id || "select";
+    selectTag.onchange = function () {
+      eval(props.onChange);
+    };
+
+    for (const index in props.options) {
+      const op = new Option();
+      op.value = index;
+      op.text = props.options[index];
+      selectTag.options.add(op);
+    }
+    document.body.appendChild(selectTag);
   }
 }

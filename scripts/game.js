@@ -12,9 +12,7 @@ const debug =
 const CANVAS_WIDTH = 1000;
 const CANVAS_HEIGHT = 500;
 
-let currentScene;
-
-currentScene = 1;
+let currentScene = 1;
 
 const FONT = "Verdana";
 
