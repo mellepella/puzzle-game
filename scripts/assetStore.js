@@ -1,52 +1,52 @@
 const TEXTURES = {
   background: {
     texture: undefined,
-    source: "../assets/images/background.png",
+    source: "assets/images/background.png",
   },
   player: {
     texture: undefined,
-    source: "../assets/images/player.png",
+    source: "assets/images/player.png",
   },
   winningCube: {
     texture: undefined,
-    source: "../assets/images/winningCube.png",
+    source: "assets/images/winningCube.png",
   },
   portalBlue: {
     texture: undefined,
-    source: "../assets/images/portalBlue.png",
+    source: "assets/images/portalBlue.png",
   },
   portalPurple: {
     texture: undefined,
-    source: "../assets/images/portalPurple.png",
+    source: "assets/images/portalPurple.png",
   },
   portalGreen: {
     texture: undefined,
-    source: "../assets/images/portalGreen.png",
+    source: "assets/images/portalGreen.png",
   },
   portalRed: {
     texture: undefined,
-    source: "../assets/images/portalRed.png",
+    source: "assets/images/portalRed.png",
   },
   obstacle: {
     texture: undefined,
-    source: "../assets/images/obstacle.png",
+    source: "assets/images/obstacle.png",
   },
   conveyorBeltUp: {
     texture: undefined,
-    source: "../assets/images/conveyorBeltUp.png",
+    source: "assets/images/conveyorBeltUp.png",
   },
   conveyorBeltRight: {
     texture: undefined,
-    source: "../assets/images/conveyorBeltRight.png",
+    source: "assets/images/conveyorBeltRight.png",
   },
   conveyorBeltDown: {
     texture: undefined,
-    source: "../assets/images/conveyorBeltDown.png",
+    source: "assets/images/conveyorBeltDown.png",
   },
   conveyorBeltLeft: {
     texture: undefined,
-    source: "../assets/images/conveyorBeltLeft.png",
-  }
+    source: "assets/images/conveyorBeltLeft.png",
+  },
 };
 
 class AssetStore {
