@@ -319,6 +319,75 @@ const scenes = [
     }).update();
   },
   () => {
+    CubeCreator.create({ type: ObstacleCube, x: 9, y: 7 }).update();
+    CubeCreator.create({
+      type: ConveyorBelt,
+      x: 13,
+      y: 4,
+      direction: "Up",
+    }).update();
+    CubeCreator.create({
+      type: ConveyorBelt,
+      x: 13,
+      y: 5,
+      direction: "Up",
+    }).update();
+    CubeCreator.create({ type: ObstacleCube, x: 7, y: 4 }).update();
+    CubeCreator.create({
+      type: ConveyorBelt,
+      x: 13,
+      y: 6,
+      direction: "Up",
+    }).update();
+    CubeCreator.create({ type: ObstacleCube, x: 12, y: 1 }).update();
+    CubeCreator.create({
+      type: PortalCube,
+      x: 7,
+      y: 3,
+      color: "Blue",
+      tpX: 15,
+      tpY: 5,
+    }).update();
+    CubeCreator.create({
+      type: ConveyorBelt,
+      x: 5,
+      y: 2,
+      direction: "Down",
+    }).update();
+    CubeCreator.create({ type: ObstacleCube, x: 6, y: 8 }).update();
+    CubeCreator.create({
+      type: ConveyorBelt,
+      x: 8,
+      y: 0,
+      direction: "Left",
+    }).update();
+    CubeCreator.create({
+      type: ConveyorBelt,
+      x: 6,
+      y: 1,
+      direction: "Down",
+    }).update();
+    CubeCreator.create({
+      type: PortalCube,
+      x: 15,
+      y: 5,
+      color: "Green",
+      tpX: 7,
+      tpY: 3,
+    }).update();
+    CubeCreator.create({
+      type: ConveyorBelt,
+      x: 15,
+      y: 8,
+      direction: "Up",
+    }).update();
+    CubeCreator.create({
+      type: WinningCube,
+      x: 7,
+      y: 0,
+    }).update();
+  },
+  () => {
     Scenes.winningScene();
   },
 ];
