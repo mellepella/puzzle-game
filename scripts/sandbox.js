@@ -1,5 +1,4 @@
 const sandbox = {
-  history: [],
   level: "",
   object: ObstacleCube,
   tpX: 0,
@@ -25,17 +24,8 @@ class Sandbox {
     this.drawMarking(mouseX, mouseY);
   }
 
-  static undo() {
-    const history = sandbox.history;
-
-    history.splice(history.length - 1, 1);
-  }
-
   static pushLevel() {
-    const history = sandbox.history;
-
     scenes.splice(scenes.length - 1, 1, () => {
-      sandbox.level = history[history.length - 1] || "";
       eval(sandbox.level);
     });
   }
@@ -63,9 +53,7 @@ class Sandbox {
     let cube;
     switch (props.type.name) {
       case "PortalCube":
-        cube =
-          sandbox.level +
-          `CubeCreator.create({ 
+        cube = `CubeCreator.create({ 
           type: ${props.type.name}, 
           x: ${props.x}, 
           y: ${props.y},
@@ -75,9 +63,7 @@ class Sandbox {
         }).update();`;
         break;
       case "ConveyorBelt":
-        cube =
-          sandbox.level +
-          `CubeCreator.create({ 
+        cube = `CubeCreator.create({ 
           type: ${props.type.name}, 
           x: ${props.x}, 
           y: ${props.y},
@@ -85,16 +71,14 @@ class Sandbox {
         }).update();`;
         break;
       default:
-        cube =
-          sandbox.level +
-          `CubeCreator.create({ 
+        cube = `CubeCreator.create({ 
           type: ${props.type.name}, 
           x: ${props.x}, 
           y: ${props.y}
         }).update();`;
     }
 
-    sandbox.history.push(cube);
+    sandbox.level += cube;
     this.pushLevel();
   }
 
@@ -140,7 +124,5 @@ class Sandbox {
       id: "belt-direction",
       onChange: "Sandbox.updateBeltDirection()",
     });
-
-    UserInterface.createButton("Undo", "Sandbox.undo()");
   }
 }
