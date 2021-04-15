@@ -8,10 +8,6 @@ function debugListener() {
   });
 
   canvas.addEventListener("click", function (event) {
-    Sandbox.addObject({
-      type: sandbox.object, 
-      x: Math.floor(mouseX/UNIT_SIZE), 
-      y: Math.floor(mouseY/UNIT_SIZE)
-    });
+    Game.handleClick({ clickX: mouseX, clickY: mouseY, event });
   });
 }
