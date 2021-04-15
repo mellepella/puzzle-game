@@ -26,14 +26,31 @@ class Game {
     return { elapsedSeconds, elapsedMinutes };
   }
 
+  static stringSearch({ string, keyword }) {
+    if (string.search(keyword) !== -1) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   static handleClick({ clickX, clickY, event }) {
     let levelArray = Converter.convertToArray(sandbox.level, ";");
     let isEmpty = true;
+    const xKeyword = `x: ${Math.floor(clickX / UNIT_SIZE)}`;
+    const yKeyword = `y: ${Math.floor(clickY / UNIT_SIZE)}`;
+
     for (const index in levelArray) {
+      const value = levelArray[index];
       if (
-        levelArray[index].search(`x: ${Math.floor(clickX / UNIT_SIZE)}`) !==
-          -1 &&
-        levelArray[index].search(`y: ${Math.floor(clickY / UNIT_SIZE)}`) !== -1
+        this.stringSearch({
+          string: value,
+          keyword: xKeyword,
+        }) &&
+        this.stringSearch({
+          string: value,
+          keyword: yKeyword,
+        })
       ) {
         levelArray.splice(parseInt(index), 1);
         sandbox.level = levelArray.join(";").toString();
@@ -41,7 +58,6 @@ class Game {
       }
     }
     if (isEmpty) {
-      console.log("Created new object!");
       Sandbox.addObject({
         type: sandbox.object,
         x: Math.floor(mouseX / UNIT_SIZE),
@@ -100,8 +116,6 @@ class Game {
     }
   }
 }
-
-// Animate
 
 AssetStore.loadTextures().then(() => {
   PLAYER_CUBE.texture = AssetStore.getTexture("player");
