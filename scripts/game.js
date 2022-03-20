@@ -9,7 +9,7 @@ const FONT = "Verdana";
 let gameIsRunning = true;
 const UPDATE_TIME = 5;
 const UNIT_SIZE = 50;
-const PLAYER_VELOCITY = UNIT_SIZE / 10;
+const PLAYER_VELOCITY = UNIT_SIZE / 8;
 let startingX = UNIT_SIZE * 9;
 let startingY = UNIT_SIZE * 4;
 
